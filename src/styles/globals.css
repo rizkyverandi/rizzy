@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 425px;
+}
+
+li {
+  list-style: none;
+  text-decoration: none;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 768px; /* Adjust as needed */
+  min-width: 320px;
+  margin: 0 auto; /* Center the container */
+  /*padding: 20px 0px; /* Add some padding for smaller screens */
+}
+
+/***** Colors Variables *****/
+
+.light {
+  --background: 230, 230, 230;
+  
+  --border: 212, 212, 212;
+  --card: 255, 255, 255;
+
+  --copy-primary: 23, 23, 23;
+  --copy-secondary: 115, 115, 115;
+
+  --cta: 139, 92, 246;
+  --cta-active: 124, 58, 237;
+  --cta-text: 0, 0, 0;
+  --cta-text-secondary: 44, 44, 44;
+  
+
+  background: rgba(var(--background));
+}
+
+.dark {
+  --background: 24, 24, 24;
+
+  --border: 38, 38, 38;
+  --card: 31, 31, 31;
+
+  --copy-primary: 250, 250, 250;
+  --copy-secondary: 187, 187, 187;
+
+  --cta: 99, 102, 241;
+  --cta-active: 79, 70, 229;
+  --cta-text: 255, 255, 255;
+  --cta-text-secondary: 187, 187, 187;
+
+  background: rgba(var(--background));
+}
