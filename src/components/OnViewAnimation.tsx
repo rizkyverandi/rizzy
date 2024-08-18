@@ -23,6 +23,7 @@ const OnViewAnimation = ({
       <motion.div
         initial={{ y: 48, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
+        viewport={{once: true}}
         transition={{ ease: "easeInOut", duration: 0.75 }}
         className={className}
       >

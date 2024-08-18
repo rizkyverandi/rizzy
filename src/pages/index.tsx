@@ -8,7 +8,8 @@ import OnViewAnimation from "@/components/OnViewAnimation";
 import useHead from "@/utils/useHead";
 
 export default function Home() {
-  const Head = () => useHead({ title: "Rizz-y Personal Website", desc: "this is my homepage" });
+  const Head = () =>
+    useHead({ title: "Rizz-y Personal Website", desc: "this is my homepage" });
 
   return (
     <>
@@ -31,9 +32,9 @@ export default function Home() {
                 {`>_`}Hello world! <BlinkingText text="." />
               </h1>
               <Paragraph>
-                I'm a software developer who makes open-source projects and
+                I&apos;m a software developer who makes open-source projects and
                 writes about code and life. On this site, you can check out all
-                the technical articles I've written, read some of my personal
+                the technical articles I&apos;ve written, read some of my personal
                 notes, or learn more about me.
               </Paragraph>
             </div>
@@ -46,10 +47,6 @@ export default function Home() {
             <OnViewAnimation headerText="Articles">
               <List />
             </OnViewAnimation>
-            {/* <h2 className="font-bold text-6xl">Articles</h2>
-            <div className="flex flex-row">
-             <List />
-            </div> */}
           </div>
         </Container>
       </SectionWrapper>
@@ -58,11 +55,11 @@ export default function Home() {
           <div className="flex flex-col gap-y-5">
             <OnViewAnimation
               headerText="Projects"
-              className="grid grid-flow-row md:grid-cols-3 grid-row-1 gap-6"
+              className="grid grid-flow-row sm:grid-cols-3 grid-row-1 gap-6"
             >
-              <Card />
-              <Card />
-              <Card />
+              <Card year="2020" title="Keyboard Accordion" desc="Play the accordion online" url="/"/>
+              <Card year="2020" title="Keyboard Accordion" desc="Play the accordion online" url="/"/>
+              <Card year="2020" title="Keyboard Accordion" desc="Play the accordion online" url="/"/>
             </OnViewAnimation>
             {/* <h2 className="font-bold text-6xl">Projects</h2>
             <div className="grid grid-flow-row md:grid-cols-3 grid-row-1 gap-6">

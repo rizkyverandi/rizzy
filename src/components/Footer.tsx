@@ -10,21 +10,33 @@ const Footer = ({ className }: { className?: string }) => {
         <div className="flex md:flex-row flex-col items-center md:justify-between justify-center m-auto w-full">
           <ul className="flex flex-row gap-6 ">
             <li>
-              <Link href={"/"} aria-label="Go to About page">
+              <Link
+                href={"https://nextjs.org/"}
+                target="_blank"
+                aria-label="Go to About page"
+              >
                 <span className="flex gap-2 items-center">
                   <RiNextjsFill /> Nextjs
                 </span>
               </Link>
             </li>
             <li>
-              <Link href={"/"} aria-label="Go to About page">
+              <Link
+                href={"https://github.com/Rizkyverandi"}
+                target="_blank"
+                aria-label="Go to About page"
+              >
                 <span className="flex gap-2 items-center ">
                   <FaGithubAlt /> Github
                 </span>
               </Link>
             </li>
             <li>
-              <Link href={"/"} aria-label="Go to About page">
+              <Link
+                href={"https://vercel.com/"}
+                target="_blank"
+                aria-label="Go to About page"
+              >
                 <span className="flex gap-2 items-center ">
                   <SiVercel /> Vercel
                 </span>
@@ -32,7 +44,8 @@ const Footer = ({ className }: { className?: string }) => {
             </li>
           </ul>
           <span className="flex flex-row items-center gap-2">
-            <FaRegCopyright /> Rizky Verandi {new Date().getFullYear()}
+            Copyright
+            <FaRegCopyright /> Rizky Verandi 2024
           </span>
         </div>
       </nav>

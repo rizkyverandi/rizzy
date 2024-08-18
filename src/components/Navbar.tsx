@@ -1,21 +1,12 @@
-"use client";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { MdOutlineDarkMode } from "react-icons/md";
 import Image from "next/image";
 import { Avatar, Avatar2 } from "@/assets";
+import { useTheme } from "@/contexts/ThemeContext";
+import HoverText from "./HoverText";
 
 const Navbar = ({ className }: { className?: string }) => {
-  const [darkMode, setDarkMode] = useState({ theme: "dark" });
-
-  const darkModeHandler = () => {
-    if (darkMode.theme == "dark") setDarkMode({ theme: "light" });
-    else setDarkMode({ theme: "dark" });
-  };
-
-  useEffect(() => {
-    document.body.className = darkMode.theme;
-  }, [darkMode]);
+  const { toggleTheme } = useTheme();
 
   return (
     <header
@@ -35,22 +26,34 @@ const Navbar = ({ className }: { className?: string }) => {
         </h1>
         <nav>
           <ul className="flex flex-row gap-6">
-            <li className="">
-              <Link href={"/about"} aria-label="Go to About page">
+            <li className="px-2">
+              <Link
+                className="hover-fx "
+                href={"/about"}
+                aria-label="Go to About page"
+              >
                 About
               </Link>
             </li>
-            <li>
-              <Link href="/projects" aria-label="Go to Projects page">
+            <li className="px-2">
+              <Link
+                className="hover-fx"
+                href="/projects"
+                aria-label="Go to Projects page"
+              >
                 Projects
               </Link>
             </li>
-            <li>
-              <Link href="/articles" aria-label="Go to Articles page">
+            <li className="px-2">
+              <Link
+                className="hover-fx"
+                href="/blog"
+                aria-label="Go to Articles page"
+              >
                 Articles
               </Link>
             </li>
-            <li onClick={darkModeHandler}>
+            <li onClick={toggleTheme}>
               <button
                 type="button"
                 name="darkModeButton"

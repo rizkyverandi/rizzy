@@ -1,11 +1,7 @@
 import Link from "next/link";
+import { ArticleType } from "@/types/article";
 
-type Article = {
-  title: string;
-  date: Date;
-};
-
-const data: Article[] = [
+const data: ArticleType[] = [
   {
     title: "Introducing React",
     date: new Date("17-Jan-2001"),
@@ -25,8 +21,8 @@ const List = () => {
     <ul className="flex flex-col gap-3 flex-grow">
       {data.map((value, index) => {
         return (
-          <li key={index} className="py-1 border-b-[1px] border-gray-500">
-            <Link className="flex flex-row justify-between" href={"/"} aria-label={`Article about ${value.title} published on ${value.date.toDateString()}`}>
+          <li key={index} className=" py-1 border-b-[1px] border-gray-500">
+            <Link className="hover:text-blue-700 hover:underline flex flex-row justify-between" href={"/"} aria-label={`Article about ${value.title} published on ${value.date.toDateString()}`}>
               <p>{value.title}</p>
               <p>{value.date.toDateString()}</p>
             </Link>

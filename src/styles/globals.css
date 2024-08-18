@@ -58,3 +58,66 @@ li {
 
   background: rgba(var(--background));
 }
+
+/* width */
+.dark::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+.dark::-webkit-scrollbar-track {
+  background: rgb(45, 45, 45); 
+}
+ 
+/* Handle */
+.dark::-webkit-scrollbar-thumb {
+  background: rgb(76, 76, 76); 
+}
+
+/* Handle on hover */
+.light::-webkit-scrollbar-thumb:hover {
+  background: rgb(76, 76, 76); 
+}
+
+
+.light::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+.light::-webkit-scrollbar-track {
+  background: rgba(190, 190, 190); 
+}
+ 
+/* Handle */
+.light::-webkit-scrollbar-thumb {
+  background: rgba(215,215,215); 
+}
+
+/* Handle on hover */
+.light::-webkit-scrollbar-thumb:hover {
+  background: rgba(210,210,210); 
+}
+
+
+/* Hover text change effect */
+.hover-fx:hover {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.hover-fx:hover:before {
+  content: ">";
+  top: 50%;
+  left: 0;
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 0;
+  white-space: nowrap;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.hover-fx:hover:before {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.1); /* Slightly scale up */
+}
