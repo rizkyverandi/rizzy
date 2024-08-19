@@ -33,7 +33,7 @@ const About = () => {
                 <a
                   href="https://code.visualstudio.com/"
                   target="_blank"
-                  className="underline hover:text-blue-600"
+                  className="hover-link underline"
                 >
                   Visual Studio Code
                 </a>
@@ -43,7 +43,7 @@ const About = () => {
                 <a
                   href="https://nextjs.org/"
                   target="_blank"
-                  className="underline hover:text-blue-600"
+                  className="hover-link underline"
                 >
                   Nextjs
                 </a>
@@ -53,7 +53,7 @@ const About = () => {
                 <a
                   href="https://www.framer.com/motion/"
                   target="_blank"
-                  className="underline hover:text-blue-600"
+                  className="hover-link underline"
                 >
                   Framer motion
                 </a>
@@ -61,7 +61,7 @@ const About = () => {
                 <a
                   href="https://lenis.darkroom.engineering/"
                   target="_blank"
-                  className="underline hover:text-blue-600"
+                  className="hover-link underline"
                 >
                   Lenis
                 </a>
@@ -75,26 +75,26 @@ const About = () => {
                 <a
                   href="mailto:rizverandi@gmail.com"
                   target="_blank"
-                  className="underline hover:text-blue-600"
+                  className="hover-link underline"
                 >
                   rizverandi@gmail.com
                 </a>
               </li>
-              <li className="font-semibold flex gap-2 underline">
+              <li className="font-semibold flex gap-2">
                 <a
                   href="https://x.com/enkumusic"
                   target="_blank"
-                  className="underline hover:text-blue-600"
+                  className="hover-link underline"
                 >
                   Twitter
                 </a>
               </li>
-              <li className="font-semibold flex gap-2 underline">
+              <li className="font-semibold flex gap-2">
                 {" "}
                 <a
                   href="https://www.linkedin.com/in/rizkyverandi/"
                   target="_blank"
-                  className="underline hover:text-blue-600"
+                  className="hover-link underline"
                 >
                   LinkedIn
                 </a>

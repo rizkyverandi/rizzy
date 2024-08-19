@@ -27,9 +27,9 @@ const index = () => {
             via email, LinkedIn, or social media. Cheers!
           </Paragraph>
           <div className="grid grid-flow-row md:grid-cols-3 grid-row-1 gap-6">
+            {/* <Card />
             <Card />
-            <Card />
-            <Card />
+            <Card /> */}
           </div>
         </div>
       </Container>
