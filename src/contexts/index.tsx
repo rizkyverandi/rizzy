@@ -1,8 +1,14 @@
 import { createContext, useState, useEffect, useContext } from "react";
 import { ThemeContextInterface } from "@/types/theme";
-const ThemeContext = createContext<ThemeContextInterface | undefined>(undefined);
 
-export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
+// #region Create Context
+const ThemeContext = createContext<ThemeContextInterface | undefined>(
+  undefined
+);
+// #endregion
+
+// #region Providers
+const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const [theme, setTheme] = useState<"light" | "dark" | "">("");
 
   useEffect(() => {
@@ -31,12 +37,25 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export const useTheme = (): ThemeContextInterface => {
-    const context = useContext(ThemeContext);
-    if (context === undefined) {
-      throw new Error("useTheme must be used within a ThemeProvider");
-    }
-    return context;
-  };
-  
+// #endregion
 
+// #region  Context Custom Hooks
+export const useTheme = (): ThemeContextInterface => {
+  const context = useContext(ThemeContext);
+  if (context === undefined) {
+    throw new Error("useTheme must be used within a ThemeProvider");
+  }
+  return context;
+};
+//#endregion
+
+// #region Global Provider
+export const GlobalProvider = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <ThemeProvider>
+      {children}
+    </ThemeProvider>
+  );
+};
+
+//#endregion

@@ -9,7 +9,6 @@ const Loader = ({ className }: { className: string }) => {
     interval = setTimeout(() => {
       setLoading((prevLoading) => !prevLoading);
     }, 5000);
-    console.log(setLoading);
     return () => {
       clearTimeout(interval);
     };

@@ -1,20 +1,26 @@
-import { CardType } from "@/types/card";
+import { ProjectType } from "@/types/project";
 import { FaExternalLinkAlt } from "react-icons/fa";
-const Card = ({ title, desc, url, articleUrl, demoUrl, year }: CardType) => {
+import Logger from "@/utils/logger";
+
+const Card = (props: Partial<ProjectType>) => {
+  Logger.logComponent("Card");
+
   return (
     <figure className="border border-gray-500 rounded-3xl bg-card p-6 flex flex-col gap-2">
-      <time>{year}</time>
-      <h3 className="text-lg">{title}</h3>
-      <figcaption className="text-copy-secondary">{desc}</figcaption>
-      <div className="flex flex-row gap-2 ">
-        {url && (
+      <time className="text-xs">{props.year}</time>
+      <h3 className="text-base">{props.title}</h3>
+      <figcaption className="text-copy-secondary text-sm">
+        {props.desc}
+      </figcaption>
+      <div className="flex flex-row gap-2 pt-4">
+        {props.url && (
           <a
             className="text-copy-secondary px-4 py-2 bg-card rounded-xl border border-gray-500 flex items-center"
-            href={`${url}`}
+            href={`${props.url}`}
             target="_blank"
             rel="norefferer"
           >
-            <FaExternalLinkAlt size={13}/>
+            <FaExternalLinkAlt size={12} />
           </a>
         )}
         {/* {articleUrl && (

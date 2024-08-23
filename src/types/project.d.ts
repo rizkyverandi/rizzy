@@ -1,4 +1,5 @@
-export type CardType = {
+export type ProjectType = {
+  id?: string;
   title: string;
   desc: string;
   year: string;

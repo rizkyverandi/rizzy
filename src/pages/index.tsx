@@ -5,15 +5,12 @@ import Paragraph from "@/components/Paragraph";
 import BlinkingText from "@/components/BlinkingText";
 import List from "@/components/List";
 import OnViewAnimation from "@/components/OnViewAnimation";
-import useHead from "@/utils/useHead";
+import Logger from "@/utils/logger";
 
 export default function Home() {
-  const Head = () =>
-    useHead({ title: "Rizz-y Personal Website", desc: "this is my homepage" });
-
+  Logger.logComponent("Home")
   return (
     <>
-      <Head />
       <SectionWrapper>
         <Container className="py-20">
           <div className="grid grid-flow-row lg:grid-rows-1 grid-rows-2 lg:grid-cols-6 gap-14">
@@ -44,7 +41,7 @@ export default function Home() {
       <SectionWrapper>
         <Container className="py-20 text-cta-text">
           <div className="flex flex-col gap-y-5">
-            <OnViewAnimation headerText="Articles">
+            <OnViewAnimation headerText="Articles"   redirectURL="/blog">
               <List />
             </OnViewAnimation>
           </div>
@@ -52,10 +49,11 @@ export default function Home() {
       </SectionWrapper>
       <SectionWrapper>
         <Container className="py-20 text-cta-text">
-          <div className="flex flex-col gap-y-5">
+          <div className="flex flex-col gap-y-5"> 
             <OnViewAnimation
               headerText="Projects"
               className="grid grid-flow-row sm:grid-cols-3 grid-row-1 gap-6"
+              redirectURL="/projects"
             >
               <Card year="2020" title="Keyboard Accordion" desc="Play the accordion online" url="/"/>
               <Card year="2020" title="Keyboard Accordion" desc="Play the accordion online" url="/"/>

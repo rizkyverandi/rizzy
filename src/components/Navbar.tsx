@@ -2,12 +2,10 @@ import Link from "next/link";
 import { MdOutlineDarkMode } from "react-icons/md";
 import Image from "next/image";
 import { Avatar, Avatar2 } from "@/assets";
-import { useTheme } from "@/contexts/ThemeContext";
-import HoverText from "./HoverText";
+import { useTheme } from "@/contexts";
 
 const Navbar = ({ className }: { className?: string }) => {
   const { toggleTheme } = useTheme();
-
   return (
     <header
       className={`${className} border-b-gray-600 border-b-[1px] shadow-lg p-4 w-full text-cta-text`}
