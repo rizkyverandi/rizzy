@@ -1,17 +1,19 @@
+import { promises as fs } from "fs";
+import path from "path";
+
 export const loadProjects = async () => {
   try {
-    const response = await fetch(`http://localhost:3000/api/project`);
-    if (!response.ok) {
-      console.error(`HTTP error! Status: ${response.status}`);
-      return {
-        project: [], // Return empty project array or handle accordingly
-      };
-    }
-    const project = await response.json();
-    return project;
+    // Get the absolute path of the json directory
+    const jsonDirectory = path.join(process.cwd(), "src\\db\\projects.json");
+
+    // Read the json data file db.json
+    const fileContents = await fs.readFile(jsonDirectory, "utf8");
+
+    // Parse the JSON data
+    const project = JSON.parse(fileContents);
+    return project.payload;
   } catch (error) {
-    // Handle network errors or JSON parsing errors
-    console.error("Fetch error:", error);
+    console.error("Error reading JSON file:", error);
     return {
       project: [], // Return empty project array or handle accordingly
     };

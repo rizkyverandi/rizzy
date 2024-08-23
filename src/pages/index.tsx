@@ -59,12 +59,6 @@ export default function Home() {
               <Card year="2020" title="Keyboard Accordion" desc="Play the accordion online" url="/"/>
               <Card year="2020" title="Keyboard Accordion" desc="Play the accordion online" url="/"/>
             </OnViewAnimation>
-            {/* <h2 className="font-bold text-6xl">Projects</h2>
-            <div className="grid grid-flow-row md:grid-cols-3 grid-row-1 gap-6">
-              <Card />
-              <Card />
-              <Card />
-            </div> */}
           </div>
         </Container>
       </SectionWrapper>

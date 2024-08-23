@@ -6,12 +6,14 @@ const Card = (props: Partial<ProjectType>) => {
   Logger.logComponent("Card");
 
   return (
-    <figure className="border border-gray-500 rounded-3xl bg-card p-6 flex flex-col gap-2">
-      <time className="text-xs">{props.year}</time>
-      <h3 className="text-base">{props.title}</h3>
-      <figcaption className="text-copy-secondary text-sm">
-        {props.desc}
-      </figcaption>
+    <figure className="border border-gray-500 rounded-3xl bg-card p-6 flex flex-col gap-2 justify-between">
+      <div>
+        <time className="text-xs">{props.year}</time>
+        <h3 className="text-base">{props.title}</h3>
+        <figcaption className="text-copy-secondary text-sm">
+          {props.desc}
+        </figcaption>
+      </div>
       <div className="flex flex-row gap-2 pt-4">
         {props.url && (
           <a

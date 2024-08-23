@@ -5,16 +5,16 @@
       "title": "Portfolio",
       "desc": "The source of this website.",
       "year": "2024",
-      "url": "https://github.com/Rizkyverandi/portfolio-2024",
+      "url": "https://github.com/rizkyverandi/portfolio-2024",
       "demoUrl": "",
       "articleUrl": ""
     },
     {
       "id": "99cdedda-df85-4740-b867-b63263b63c46",
-      "title": "Pokemon RxJS",
+      "title": "Pokemon",
       "desc": "Manage pokemon list state using RxJS.",
       "year": "2024",
-      "url": "https://github.com/Rizkyverandi/pokemon-2024",
+      "url": "https://github.com/rizkyverandi/pokemon-2024",
       "demoUrl": "",
       "articleUrl": ""
     }

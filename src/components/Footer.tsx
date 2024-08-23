@@ -22,7 +22,7 @@ const Footer = ({ className }: { className?: string }) => {
             </li>
             <li>
               <Link
-                href={"https://github.com/Rizkyverandi"}
+                href={"https://github.com/rizkyverandi"}
                 target="_blank"
                 aria-label="Go to About page"
               >
