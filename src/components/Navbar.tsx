@@ -3,9 +3,12 @@ import { MdOutlineDarkMode } from "react-icons/md";
 import Image from "next/image";
 import { Avatar, Avatar2 } from "@/assets";
 import { useTheme } from "@/contexts";
+import Logger from "@/utils/logger";
 
 const Navbar = ({ className }: { className?: string }) => {
+  Logger.logComponent("Navbar");
   const { toggleTheme } = useTheme();
+
   return (
     <header
       className={`${className} border-b-gray-600 border-b-[1px] shadow-lg p-4 w-full text-cta-text`}
@@ -16,6 +19,7 @@ const Navbar = ({ className }: { className?: string }) => {
             <Image
               className="m-auto"
               alt="This image is represent Rizz-y as 8-bit avatar"
+              about="This is Rizz-y as 8-bit avatar"
               src={Avatar}
               width={30}
               height={30}

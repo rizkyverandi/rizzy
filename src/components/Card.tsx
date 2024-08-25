@@ -1,6 +1,7 @@
 import { ProjectType } from "@/types/project";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import Logger from "@/utils/logger";
+import { memo } from "react";
 
 const Card = (props: Partial<ProjectType>) => {
   Logger.logComponent("Card");
@@ -40,4 +41,4 @@ const Card = (props: Partial<ProjectType>) => {
   );
 };
 
-export default Card;
+export default memo(Card);

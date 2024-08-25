@@ -1,5 +1,10 @@
 export type ArticleType = {
+  year: string;
+  articles: ArticleProps[];
+};
+
+export type ArticleProps = {
   title: string;
-  date: Date;
+  date: string;
   url: string;
 };
