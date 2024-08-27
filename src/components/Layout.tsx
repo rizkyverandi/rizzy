@@ -5,7 +5,8 @@ import { useEffect, useState } from "react";
 import useHead from "@/utils/useHead";
 import { GlobalProvider } from "@/contexts";
 
-const inter = Pixelify_Sans({ subsets: ["latin"] });
+//const inter = Pixelify_Sans({ subsets: ["latin"] });
+const inter = Quicksand({ subsets: ["latin"] })
 
 // Dynamically import the component
 const Loader = dynamic(() => import("./Loader"));

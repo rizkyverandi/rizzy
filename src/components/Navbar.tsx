@@ -3,10 +3,10 @@ import { MdOutlineDarkMode } from "react-icons/md";
 import Image from "next/image";
 import { Avatar, Avatar2 } from "@/assets";
 import { useTheme } from "@/contexts";
-import Logger from "@/utils/logger";
+import Utils from "@/utils/utils";
 
 const Navbar = ({ className }: { className?: string }) => {
-  Logger.logComponent("Navbar");
+  Utils.logComponent("Navbar");
   const { toggleTheme } = useTheme();
 
   return (

@@ -4,7 +4,7 @@ import { ArticleProps } from "@/types/article";
 const List = ({ title, date, url }: ArticleProps, key: number) => {
   return (
     <ul className="flex flex-col gap-3 flex-grow">
-      <li key={key} className=" py-1 border-b-[1px] border-gray-500">
+      <li key={key} className="py-1 border-b-[1px] border-gray-500">
         <Link
           className="hover:text-pink-500 hover:underline flex flex-row justify-between"
           href={url}

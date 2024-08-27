@@ -1,10 +1,10 @@
 import { ProjectType } from "@/types/project";
 import { FaExternalLinkAlt } from "react-icons/fa";
-import Logger from "@/utils/logger";
+import Utils from "@/utils/utils";
 import { memo } from "react";
 
 const Card = (props: Partial<ProjectType>) => {
-  Logger.logComponent("Card");
+  Utils.logComponent("Card");
 
   return (
     <figure className="border border-gray-500 rounded-3xl bg-card p-6 flex flex-col gap-2 justify-between">
