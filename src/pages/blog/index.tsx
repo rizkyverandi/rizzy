@@ -6,11 +6,12 @@ import useHead from "@/utils/useHead";
 import List from "@/components/List";
 import { getPostMeta } from "@/libs/getPosts";
 import { TagsType } from "@/types/tags";
+import OnViewAnimation from "@/components/OnViewAnimation";
 
 const index = ({ posts }: { posts: TagsType[] }) => {
   const Head = () =>
     useHead({
-      title: "Articles | Rizz-y Personal Website",
+      title: "Blogs | Rizz-y Personal Website",
       description: "This is Rizz-y personal website.",
     });
   return (
@@ -20,21 +21,23 @@ const index = ({ posts }: { posts: TagsType[] }) => {
         <Container className="py-20">
           <div className="flex flex-col gap-y-5">
             <h1 className="flex text-6xl font-bold">
-              Articles <BlinkingText text="." />
+              Blogs <BlinkingText text="." />
             </h1>
             <Paragraph>
               Articles about lifestyle, web development, music, and references.
             </Paragraph>
-            {posts.map((data, index) => {
-              return (
-                <List
-                  title={data.title}
-                  date={data.date}
-                  url={data.id}
-                  key={index}
-                />
-              );
-            })}
+            <OnViewAnimation>
+              {posts.map((data, index) => {
+                return (
+                  <List
+                    title={data.title}
+                    date={data.date}
+                    url={`/blog/${data.id}`}
+                    key={index}
+                  />
+                );
+              })}
+            </OnViewAnimation>
           </div>
         </Container>
       </SectionWrapper>

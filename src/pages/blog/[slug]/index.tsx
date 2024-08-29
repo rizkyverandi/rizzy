@@ -7,6 +7,8 @@ import "highlight.js/styles/github-dark.css";
 import "prismjs";
 import "prismjs/components/prism-typescript"; // Import TypeScript language definition
 import "prismjs/themes/prism-tomorrow.css";
+import useHead from "@/utils/useHead";
+import Tags from "@/components/Tags";
 
 type Props = {
   params: {
@@ -15,16 +17,33 @@ type Props = {
 };
 
 const index = ({ post }: { post: MetaTags }) => {
+  const Head = () =>
+    useHead({
+      title: `${post.meta.title} | Rizz-y Personal Website`,
+      description: post.meta.description,
+      keywords: post.meta.tags,
+      author: "Rizky Verandi",
+      slug: post.meta.id,
+    });
+
   return (
-    <article>
-      <SectionWrapper>
-        <Container className="md:py-20 markdown-content">
-          <h1>{post.meta.title}</h1>
-          <p>{new Date(post.meta.date).toDateString()}</p>
-          <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
-        </Container>
-      </SectionWrapper>
-    </article>
+    <>
+      <Head />
+      <article>
+        <SectionWrapper>
+          <Container className="markdown-content">
+            <h1>{post.meta.title}</h1>
+            <p>{new Date(post.meta.date).toDateString()}</p>
+            <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
+            <div className="flex flex-row gap-x-4">
+              {post.meta.tags.map((tag, index) => {
+                return <Tags key={index} tags={tag} />;
+              })}
+            </div>
+          </Container>
+        </SectionWrapper>
+      </article>
+    </>
   );
 };
 

@@ -67,6 +67,7 @@ export const getPostByName = async (
       title: matter.data.title, //frontmatter.title,
       date: matter.data.date, //frontmatter.date,
       tags: matter.data.tags, //frontmatter.tags,
+      description: matter.data.description || ""
     },
     content: processedContent,
   };

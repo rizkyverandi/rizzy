@@ -3,6 +3,7 @@ import Head from "next/head";
 type HeadProps = {
   title: string;
   description: string;
+  author?: string;
   imageUrl?: string;
   slug?: string;
   keywords?: string[];
@@ -15,8 +16,10 @@ const useHead = (props: HeadProps) => {
       <title>{props.title}</title>
       <meta name="description" content={props.description} />
       <meta name="keywords" content={props.keywords?.join(", ")}></meta>
-      <meta name="author" content="Author Name"></meta>
-      <link rel="canonical" href="https://example.com/page-url"></link>
+      {props.author && <meta name="author" content={props.author}></meta>}
+      {props.slug && (
+        <link rel="canonical" href={`https://example.com/${props.slug}`}></link>
+      )}
       {props.robots && <meta name="robots" content={props.robots}></meta>}
 
       {/*================ Open graph metatags ================*/}

@@ -8,7 +8,6 @@ import OnViewAnimation from "@/components/OnViewAnimation";
 import Logger from "@/utils/utils";
 import { loadProjects } from "@/libs";
 import { ProjectType } from "@/types/project";
-import { ArticleProps } from "@/types/article";
 import { Avatar } from "@/assets";
 import Image from "next/image";
 import { getPostMeta } from "@/libs/getPosts";
@@ -85,15 +84,7 @@ export default function Home({
               redirectURL="/projects"
             >
               {project.slice(0, 3).map((val: Partial<ProjectType>) => {
-                return (
-                  <Card
-                    key={val.id}
-                    title={val.title}
-                    desc={val.desc}
-                    year={val.year}
-                    url={val.url}
-                  />
-                );
+                return <Card key={val.id} props={val} headerTag="h3" />;
               })}
             </OnViewAnimation>
           </div>

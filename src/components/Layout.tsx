@@ -1,26 +1,20 @@
-import { Pixelify_Sans, Quicksand } from "next/font/google";
+import { Quicksand } from "next/font/google";
 import { ReactLenis } from "lenis/react";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
-import useHead from "@/utils/useHead";
+import Head from "next/head";
 import { GlobalProvider } from "@/contexts";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 //const inter = Pixelify_Sans({ subsets: ["latin"] });
-const inter = Quicksand({ subsets: ["latin"] })
+const inter = Quicksand({ subsets: ["latin"] });
 
 // Dynamically import the component
 const Loader = dynamic(() => import("./Loader"));
-const Navbar = dynamic(() => import("./Navbar"));
-const Footer = dynamic(() => import("./Footer"));
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const [loadSecond, setLoadSecond] = useState(false);
-  const Head = () =>
-    useHead({
-      title: "Rizz-y Personal Website",
-      description: "This is Rizz-y personal website.",
-    });
-
   useEffect(() => {
     setTimeout(() => {
       setLoadSecond(true);
@@ -29,10 +23,18 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <>
+      <Loader
+        className={`z-10 ${inter.className}`}
+      />
       <GlobalProvider>
         <ReactLenis root>
-          <Head />
-          <Loader className={`z-10 ${inter.className}`} />
+          <Head>
+            <title>Rizz-y Personal Website</title>
+            <meta
+              name="description"
+              content={`This is Rizz-y personal website.`}
+            />
+          </Head>
           {loadSecond && <Navbar className={`${inter.className}`} />}
           {loadSecond && (
             <main

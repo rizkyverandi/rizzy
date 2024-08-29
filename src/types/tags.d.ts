@@ -3,6 +3,7 @@ export type TagsType = {
   title: string;
   date: string;
   tags: string[];
+  description: string;
 };
 
 export type MetaTags = {

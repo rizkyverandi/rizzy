@@ -52,7 +52,7 @@ const Navbar = ({ className }: { className?: string }) => {
                 href="/blog"
                 aria-label="Go to Articles page"
               >
-                Articles
+                Blogs
               </Link>
             </li>
             <li onClick={toggleTheme}>

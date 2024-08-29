@@ -19,17 +19,26 @@ const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     if (storedTheme) {
       setTheme(storedTheme);
     }
+    document.body.classList.add("overflow-y-hidden");
   }, []);
 
   useEffect(() => {
     localStorage.setItem("theme", theme);
-    document.body.className = theme;
+
+    if (theme && theme !== null) {
+      document.body.classList.add(theme);
+    } else {
+      document.body.classList.add("light"); // Use a default theme
+    }
+
+    return () => {
+      document.body.classList.remove(theme || "light"); // Clean up old theme
+    };
   }, [theme]);
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
-
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
@@ -52,11 +61,7 @@ export const useTheme = (): ThemeContextInterface => {
 
 // #region Global Provider
 export const GlobalProvider = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <ThemeProvider>
-      {children}
-    </ThemeProvider>
-  );
+  return <ThemeProvider>{children}</ThemeProvider>;
 };
 
 //#endregion

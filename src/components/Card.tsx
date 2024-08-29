@@ -3,14 +3,22 @@ import { FaExternalLinkAlt } from "react-icons/fa";
 import Utils from "@/utils/utils";
 import { memo } from "react";
 
-const Card = (props: Partial<ProjectType>) => {
+const Card = ({
+  props,
+  headerTag,
+}: {
+  props: Partial<ProjectType>;
+  headerTag: "h2" | "h3" | "h4" | "h5" | "h6";
+}) => {
   Utils.logComponent("Card");
+
+  const TagName = headerTag; // Dynamic header tag
 
   return (
     <figure className="border border-gray-500 rounded-3xl bg-card p-6 flex flex-col gap-2 justify-between">
       <div>
         <time className="text-xs">{props.year}</time>
-        <h3 className="text-base">{props.title}</h3>
+        <TagName className="text-base">{props.title}</TagName>
         <figcaption className="text-copy-secondary text-sm">
           {props.desc}
         </figcaption>
@@ -21,6 +29,7 @@ const Card = (props: Partial<ProjectType>) => {
             className="text-copy-secondary px-4 py-2 bg-card rounded-xl border border-gray-500 flex items-center"
             href={`${props.url}`}
             target="_blank"
+            aria-label={`Find out more about ${props.title} project.`}
             rel="norefferer"
           >
             <FaExternalLinkAlt size={12} />
