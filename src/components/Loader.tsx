@@ -32,7 +32,7 @@ const Loader = ({ className }: { className: string }) => {
   return (
     <motion.div
       initial={{ y: 0, opacity: 1 }}
-      animate={{ y: "-100vh" }}
+      animate={{ y: "-300vh" }}
       transition={{
         duration: 0.8,
         delay: 4,
