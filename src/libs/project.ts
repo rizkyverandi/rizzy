@@ -2,9 +2,10 @@ import { promises as fs } from "fs";
 import path from "path";
 
 export const loadProjects = async () => {
+  //const filePath = './db/projects.json';
   try {
     // Get the absolute path of the json directory
-    const jsonDirectory = path.join(process.cwd(), "src\\db\\projects.json");
+    const jsonDirectory = path.join(process.cwd(), 'src', 'db', 'projects.json');
 
     // Read the json data file db.json
     const fileContents = await fs.readFile(jsonDirectory, "utf8");
