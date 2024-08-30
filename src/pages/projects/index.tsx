@@ -11,8 +11,8 @@ import OnViewAnimation from "@/components/OnViewAnimation";
 const index = ({ project }: { project: ProjectType[] }) => {
   const Head = () =>
     useHead({
-      title: "Projects | Rizz-y Personal Website",
-      description: "This is Rizz-y personal website.",
+      title: "Projects | Rizzy Personal Website",
+      description: "Explore some innovative projects at Rizzy's repository. Get insights into our latest work and the impact Rizzy's made.",
     });
   return (
     <>

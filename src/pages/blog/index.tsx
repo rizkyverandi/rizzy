@@ -11,8 +11,8 @@ import OnViewAnimation from "@/components/OnViewAnimation";
 const index = ({ posts }: { posts: TagsType[] }) => {
   const Head = () =>
     useHead({
-      title: "Blogs | Rizz-y Personal Website",
-      description: "This is Rizz-y personal website.",
+      title: "Blogs | Rizzy Personal Website",
+      description: "Stay updated with the latest insights, lifestyle, web development, music, and references through Rizzy blog. Dive into expert articles, how-tos, and thought that help you stay ahead. Join the conversation today.",
     });
   return (
     <>

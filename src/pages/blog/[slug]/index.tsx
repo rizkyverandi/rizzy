@@ -19,7 +19,7 @@ type Props = {
 const index = ({ post }: { post: MetaTags }) => {
   const Head = () =>
     useHead({
-      title: `${post.meta.title} | Rizz-y Personal Website`,
+      title: `${post.meta.title} | Rizzy Personal Website`,
       description: post.meta.description,
       keywords: post.meta.tags,
       author: "Rizky Verandi",

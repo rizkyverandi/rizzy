@@ -29,10 +29,10 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <GlobalProvider>
         <ReactLenis root>
           <Head>
-            <title>Rizz-y Personal Website</title>
+            <title>Rizzy Personal Website</title>
             <meta
               name="description"
-              content={`This is Rizz-y personal website.`}
+              content={`Welcome to Rizzy's personal website. Explore my journey, projects, and insights in software development and music production. Discover what drives my passion for programming and music creation, and get to know the person behind the name."`}
             />
           </Head>
           {loadSecond && <Navbar className={`${inter.className}`} />}

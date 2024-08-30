@@ -8,8 +8,8 @@ import useHead from "@/utils/useHead";
 const About = () => {
   const Head = () =>
     useHead({
-      title: "About | Rizz-y Personal Website",
-      description: "This is Rizz-y personal website.",
+      title: "About | Rizzy Personal Website",
+      description: "Discover the story behind the Rizzy, Learn about Rizzy's backgrounds. Let's create something amazing together.",
     });
   return (
     <>
