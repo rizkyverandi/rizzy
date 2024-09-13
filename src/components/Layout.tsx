@@ -24,7 +24,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <Loader
-        className={`z-10 ${inter.className}`}
+        className={`p-4 z-10 ${inter.className}`}
       />
       <GlobalProvider>
         <ReactLenis root>

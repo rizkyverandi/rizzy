@@ -15,7 +15,7 @@ const Navbar = ({ className }: { className?: string }) => {
     >
       <div className="wrapper container flex justify-between">
         <h1>
-          <Link href="/">
+          <Link href="/" prefetch={false}>
             <Image
               className="m-auto"
               alt="This image is represent Rizz-y as 8-bit avatar"
@@ -33,6 +33,7 @@ const Navbar = ({ className }: { className?: string }) => {
                 className="hover-fx "
                 href={"/about"}
                 aria-label="Go to About page"
+                prefetch={false}
               >
                 About
               </Link>
@@ -42,6 +43,7 @@ const Navbar = ({ className }: { className?: string }) => {
                 className="hover-fx"
                 href="/projects"
                 aria-label="Go to Projects page"
+                prefetch={false}
               >
                 Projects
               </Link>
@@ -51,6 +53,7 @@ const Navbar = ({ className }: { className?: string }) => {
                 className="hover-fx"
                 href="/blog"
                 aria-label="Go to Articles page"
+                prefetch={false}
               >
                 Blogs
               </Link>

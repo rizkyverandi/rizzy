@@ -29,7 +29,7 @@ const OnViewAnimation = ({
         )}
         {redirectURL && (
           <motion.div {...anim}>
-            <Link href={redirectURL} className="hover-link">
+            <Link href={redirectURL} className="hover-link" prefetch={false}>
               See all
             </Link>
           </motion.div>

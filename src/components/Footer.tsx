@@ -14,6 +14,7 @@ const Footer = ({ className }: { className?: string }) => {
                 href={"https://nextjs.org/"}
                 target="_blank"
                 aria-label="Go to About page"
+                prefetch={false}
               >
                 <span className="flex gap-2 items-center">
                   <RiNextjsFill /> Nextjs
@@ -25,6 +26,7 @@ const Footer = ({ className }: { className?: string }) => {
                 href={"https://github.com/rizkyverandi"}
                 target="_blank"
                 aria-label="Go to About page"
+                prefetch={false}
               >
                 <span className="flex gap-2 items-center ">
                   <FaGithubAlt /> Github
@@ -36,6 +38,7 @@ const Footer = ({ className }: { className?: string }) => {
                 href={"https://vercel.com/"}
                 target="_blank"
                 aria-label="Go to About page"
+                prefetch={false}
               >
                 <span className="flex gap-2 items-center ">
                   <SiVercel /> Vercel

@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import splitChars from "@/utils/splitChars";
+import { useEffect, useState } from "react";
 
 const Loader = ({ className }: { className: string }) => {
+  const [userAgent, setUserAgent] = useState('');
   // const [loading, setLoading] = useState(true);
   // useEffect(() => {
   //   let interval = null;
@@ -12,6 +14,13 @@ const Loader = ({ className }: { className: string }) => {
   //     clearTimeout(interval);
   //   };
   // }, []);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      // This code will only run on the client (browser)
+      setUserAgent(navigator.userAgent);
+    }
+  }, []);
 
   const fadeAnimationVariants = {
     hidden: {
@@ -24,11 +33,15 @@ const Loader = ({ className }: { className: string }) => {
     },
   };
 
-  const text =
-    "Hey, I am glad you are here!, Thank you for visiting my personal website";
+  const isMobile = /Mobi|Android/i.test(userAgent);
+  let web = "personal website.";
+  if(isMobile){
+    web = "web."
+  }
+  let text = `Hey, I am glad you are here!, Thank you for visiting my ${web}`;
   const textWithNbsp = text.replace(/ /g, "\u00A0");
   const splittedChar = splitChars(textWithNbsp);
-
+  
   return (
     <motion.div
       initial={{ y: 0, opacity: 1 }}

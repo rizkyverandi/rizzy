@@ -9,6 +9,7 @@ const List = ({ title, date, url }: ArticleProps, key: number) => {
           className="underline underline-offset-2 hover:text-pink-500 hover:underline flex flex-row justify-between"
           href={url}
           aria-label={`Article about ${title} published on ${date}`}
+          prefetch={false}
         >
           <p>{title}</p>
           <p className="hidden md:flex">{date}</p>
