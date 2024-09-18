@@ -9,6 +9,7 @@ import "prismjs/components/prism-typescript"; // Import TypeScript language defi
 import "prismjs/themes/prism-tomorrow.css";
 import useHead from "@/utils/useHead";
 import Tags from "@/components/Tags";
+import Breadcrumb from "@/components/Breadcrumb";
 
 type Props = {
   params: {
@@ -31,6 +32,7 @@ const index = ({ post }: { post: MetaTags }) => {
       <Head />
       <article>
         <SectionWrapper>
+          <Breadcrumb />
           <Container className="markdown-content">
             <h1>{post.meta.title}</h1>
             <p>{new Date(post.meta.date).toDateString()}</p>
