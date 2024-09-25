@@ -1,9 +1,22 @@
+import { ArticleBlogProps } from "./article";
 export type TagsType = {
   id: string;
   title: string;
   date: string;
-  tags: string[];
   description: string;
+  keyword: string[];
+  tag: string;
+  imgUrl: string;
+  publisher: string;
+  readingTime: number;
+  intro: string;
+  introDesc: string;
+  recommendation: {
+    title: string;
+    url: string;
+  };
+
+
 };
 
 export type MetaTags = {
@@ -12,9 +25,9 @@ export type MetaTags = {
 };
 
 export type FileTreeType = {
-    tree: [
-      {
-        path: string;
-      }
-    ];
-  };
+  tree: [
+    {
+      path: string;
+    }
+  ];
+};

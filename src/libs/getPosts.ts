@@ -67,8 +67,18 @@ export const getPostByName = async (
       id,
       title: matter.data.title, //frontmatter.title,
       date: matter.data.date, //frontmatter.date,
-      tags: matter.data.tags, //frontmatter.tags,
+      tag: matter.data.tag, //frontmatter.tags,
       description: matter.data.description || "",
+      keyword: matter.data.keyword || [],
+      imgUrl: matter.data.imgUrl || "",
+      publisher: matter.data.publisher || "",
+      readingTime: matter.data.readingTime || 0,
+      intro: matter.data.intro || "",
+      introDesc: matter.data.introDesc || "",
+      recommendation: {
+        title: matter.data.recommendation?.title || "",
+        url: matter.data.recommendation?.url || "",
+      },
     },
     content: processedContent,
   };
@@ -92,7 +102,6 @@ const YoutubeTransformer = {
   },
 };
 
-
 const mdToHtml = async (markdown: string) => {
   const file = await unified()
     .use(remarkEmbedder, {
@@ -100,12 +109,13 @@ const mdToHtml = async (markdown: string) => {
     })
     .use(remarkParse) // Use a Markdown parser
     .use(remarkGfm)
-    .use(remark2rehype) // Convert Markdown to HTML
+    .use(remark2rehype, { allowDangerousHtml: true }) // Convert Markdown to HTML
+    //.use(rehypeRaw) // Parse raw HTML
     .use(rehypeSlug) // Add IDs to headings
     .use(rehypeAutolinkHeadings) // Autolink headings
     .use(rehypeHighlight) // Syntax highlighting for rehype
     .use(rehypePrism) // Add Prism.js syntax highlighting
-    .use(rehypeStringify) // Convert HTML to string
+    .use(rehypeStringify, { allowDangerousHtml: true }) // Convert HTML to string
     .process(markdown);
   return file.toString();
 };

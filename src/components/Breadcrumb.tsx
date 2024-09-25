@@ -5,10 +5,9 @@ const Breadcrumb = () => {
   const { asPath } = useRouter();
 
   const pathArray = asPath.split("/").filter((path) => path);
-  console.log(pathArray)
 
   return (
-    <Container className="pt-10">
+    <Container className="py-5">
       <div id="breadcrumb">
         <ul className="flex text-sm text-cta-text underline-offset-4">
           <li>

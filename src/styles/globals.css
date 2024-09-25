@@ -25,8 +25,9 @@ li {
 /***** Colors Variables *****/
 
 .light {
-  --background: 230, 230, 230;
-  
+  --background: 250, 250, 250;
+  --toc: 167, 197, 235, 0.5;
+
   --border: 212, 212, 212;
   --card: 255, 255, 255;
 
@@ -37,13 +38,16 @@ li {
   --cta-active: 124, 58, 237;
   --cta-text: 0, 0, 0;
   --cta-text-secondary: 44, 44, 44;
-  
+
+  /* background-color: rgb(241, 241, 241)0); */
 
   background: rgba(var(--background));
 }
 
 .dark {
   --background: 24, 24, 24;
+  /* --toc: 47, 79, 79, 0.4; */
+  --toc: 167, 197, 235, 0.5;
 
   --border: 38, 38, 38;
   --card: 31, 31, 31;
@@ -66,19 +70,18 @@ li {
 
 /* Track */
 .dark::-webkit-scrollbar-track {
-  background: rgb(45, 45, 45); 
+  background: rgb(45, 45, 45);
 }
- 
+
 /* Handle */
 .dark::-webkit-scrollbar-thumb {
-  background: rgb(76, 76, 76); 
+  background: rgb(76, 76, 76);
 }
 
 /* Handle on hover */
 .light::-webkit-scrollbar-thumb:hover {
-  background: rgb(76, 76, 76); 
+  background: rgb(76, 76, 76);
 }
-
 
 .light::-webkit-scrollbar {
   width: 8px;
@@ -86,19 +89,18 @@ li {
 
 /* Track */
 .light::-webkit-scrollbar-track {
-  background: rgba(190, 190, 190); 
+  background: rgba(190, 190, 190);
 }
- 
+
 /* Handle */
 .light::-webkit-scrollbar-thumb {
-  background: rgba(215,215,215); 
+  background: rgba(215, 215, 215);
 }
 
 /* Handle on hover */
 .light::-webkit-scrollbar-thumb:hover {
-  background: rgba(210,210,210); 
+  background: rgba(210, 210, 210);
 }
-
 
 /* Hover text change effect */
 .hover-fx:hover {
@@ -123,7 +125,7 @@ li {
 }
 
 .hover-link:hover {
-  color: rgb(236 72 153 / 1) /* #ec4899 */; 
+  color: #ec4899 /* #ec4899 */;
   text-decoration-line: underline;
 }
 
@@ -154,7 +156,7 @@ li {
 .markdown-content h4,
 .markdown-content h5,
 .markdown-content h6 {
-  margin-top: 1.5em; /* Space before headers */
+  /* margin-top: 1.5em; Space before headers */
   margin-bottom: 0.75em; /* Space after headers */
 }
 
@@ -195,6 +197,9 @@ li {
   border-radius: 4px;
 }
 
+.markdown-toc ol>li {
+  list-style-type: decimal;
+}
 
 .fade-in {
   opacity: 0;

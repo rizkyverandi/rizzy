@@ -16,6 +16,7 @@ const config: Config = {
       },
       colors: {
         background: "rgba(var(--background))",
+        "toc" : "rgba(var(--toc))",
         border: "rgba(var(--border))",
         card: "rgba(var(--card))",
         "copy-primary": "rgba(var(--copy-primary))",

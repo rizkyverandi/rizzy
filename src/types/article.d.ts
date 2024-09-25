@@ -8,3 +8,11 @@ export type ArticleProps = {
   date: string;
   url: string;
 };
+
+export interface ArticleBlogProps extends ArticleProps {
+  tag: string;
+  publisher: string;
+  readingTime: number;
+  publisherImgUrl: string;
+  desc: string;
+}

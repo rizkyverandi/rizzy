@@ -7,12 +7,14 @@ import List from "@/components/List";
 import { getPostMeta } from "@/libs/getPosts";
 import { TagsType } from "@/types/tags";
 import OnViewAnimation from "@/components/OnViewAnimation";
+import { BlogCard } from "@/components/Card";
 
 const index = ({ posts }: { posts: TagsType[] }) => {
   const Head = () =>
     useHead({
       title: "Blogs | Rizzy Personal Website",
-      description: "Stay updated with the latest insights, lifestyle, web development, music, and references through Rizzy blog. Dive into expert articles, how-tos, and thought that help you stay ahead. Join the conversation today.",
+      description:
+        "Stay updated with the latest insights, lifestyle, web development, music, and references through Rizzy blog. Dive into expert articles, how-tos, and thought that help you stay ahead. Join the conversation today.",
     });
   return (
     <>
@@ -26,6 +28,16 @@ const index = ({ posts }: { posts: TagsType[] }) => {
             <Paragraph>
               Articles about lifestyle, web development, music, and references.
             </Paragraph>
+            <OnViewAnimation>
+              <div className="grid grid-cols-1 md:grid-cols-3 md:gap-x-4 md:gap-y-6 md:space-y-0 space-y-6">
+                <BlogCard props={posts[0]} headerTag="h2" />
+                <BlogCard props={posts[0]} headerTag="h2" />
+                <BlogCard props={posts[0]} headerTag="h2" />
+                <BlogCard props={posts[0]} headerTag="h2" />
+                <BlogCard props={posts[0]} headerTag="h2" />
+                <BlogCard props={posts[0]} headerTag="h2" />
+              </div>
+            </OnViewAnimation>
             <OnViewAnimation>
               {posts.map((data, index) => {
                 return (

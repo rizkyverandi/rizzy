@@ -1,11 +1,13 @@
-const Tags = ({ tags }: { tags: string }) => {
+import Link from "next/link";
+
+const Tags = ({ tags, className }: { tags: string, className?: string }) => {
   return (
-    <a
-      className="p-2 text-sm bg-card rounded-2xl border border-gray-500 "
+    <Link
+      className={`${className} text-copy-secondary text-sm underline-offset-4 hover:underline font-medium`}
       href={`/tags/${tags}`}
     >
       {tags}
-    </a>
+    </Link>
   );
 };
 

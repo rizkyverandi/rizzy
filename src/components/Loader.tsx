@@ -4,16 +4,6 @@ import { useEffect, useState } from "react";
 
 const Loader = ({ className }: { className: string }) => {
   const [userAgent, setUserAgent] = useState('');
-  // const [loading, setLoading] = useState(true);
-  // useEffect(() => {
-  //   let interval = null;
-  //   interval = setTimeout(() => {
-  //     setLoading((prevLoading) => !prevLoading);
-  //   }, 5000);
-  //   return () => {
-  //     clearTimeout(interval);
-  //   };
-  // }, []);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
