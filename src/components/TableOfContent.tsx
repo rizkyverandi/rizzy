@@ -2,6 +2,7 @@ import { mock } from "node:test";
 import React, { useState } from "react";
 import { MdOutlineArrowDropDownCircle } from "react-icons/md";
 
+//TODO: Replace with real data
 const mockData = [
   {
     main: "Rincian Perhitungan Biaya Membangun Kost 20 Kamar",
@@ -45,13 +46,13 @@ const mockData = [
 const TableOfContent = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleOpen = () => {
-    setIsOpen(!isOpen);
+  const toggleOpen = (event: any) => {
+    setIsOpen(event.target.open);
   };
 
   return (
     <div className="bg-toc py-4 px-7 rounded-lg shadow-md">
-      <details onToggle={toggleOpen} open={isOpen} className="group">
+      <details onToggle={toggleOpen} open className="group">
         <summary
           style={{
             display: "flex",
@@ -75,14 +76,14 @@ const TableOfContent = () => {
             {mockData.map((data, index) => {
               return (
                 <li key={index}>
-                  <a href="#" className="underline font-medium">
+                  <a href={`#${data.main.replace(/\s+/g, "_")}`} className="underline font-medium">
                     {data.main}
                   </a>
                   <ol className="list-decimal list-inside ml-6 space-y-2 text-cta-text">
                     {data.sub.map((value, key) => {
                       return (
                         <li key={key}>
-                          <a href="#" className="underline font-medium">
+                          <a href={`#${value.main.replace(/\s+/g, "_")}`} className="underline font-medium">
                             {value.main}
                           </a>
                         </li>

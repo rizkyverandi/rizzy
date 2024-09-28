@@ -23,7 +23,7 @@ type Props = {
 const index = ({ post }: { post: MetaTags }) => {
   const Head = () =>
     useHead({
-      title: `${post.meta.title} | Rizzy Personal Website`,
+      title: post.meta.title,
       description: post.meta.description,
       keywords: post.meta.keyword,
       author: "Rizky Verandi",
@@ -67,7 +67,7 @@ const index = ({ post }: { post: MetaTags }) => {
                     >
                       <Image
                         src={"https://picsum.photos/500/500"}
-                        alt="beaches pictures"
+                        alt="beaches pictures" // TODO: add alt
                         width={0}
                         height={0}
                         style={{
@@ -91,7 +91,6 @@ const index = ({ post }: { post: MetaTags }) => {
                 alt={`Picture that represent this ${post.meta.title} article.`}
                 width={400}
                 height={250}
-                //style={{ width: "100%", height: "250px", objectFit: "cover" }}
                 className="h-[250px] w-[100%] rounded-[12px] object-fill md:h-[350px]"
               />
               <div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden rounded-[12px] bg-gradient-to-t from-[rgba(24,24,24)]/[0.7] to-transparent"></div>

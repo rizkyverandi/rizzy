@@ -1,6 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: false,
+  reactStrictMode: true,
+  eslint: {
+    dirs: ['pages', 'components', 'libs', 'utils', 'context', 'styles', 'types'], // Specify directories to lint
+    ignoreDuringBuilds: false, // Ensure builds fail if ESLint errors are found
+  },
   images: {
     remotePatterns: [
       {

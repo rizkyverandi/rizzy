@@ -4,11 +4,11 @@ import Utils from "@/utils/utils";
 import { memo } from "react";
 import { ArticleBlogProps } from "@/types/article";
 import Image from "next/image";
-import Paragraph from "./Paragraph";
 import Tags from "./Tags";
 import Link from "next/link";
+import { TagsType } from "@/types/tags";
 
-const Card = ({
+const MemoCard = ({
   props,
   headerTag,
 }: {
@@ -17,7 +17,7 @@ const Card = ({
 }) => {
   Utils.logComponent("Card");
 
-  const HeaderTag = headerTag; // Dynamic header tag
+  const HeaderTag = `${headerTag}` as keyof JSX.IntrinsicElements; // Dynamically setting header tag
 
   return (
     <figure className="border border-gray-500 rounded-3xl bg-card p-6 flex flex-col gap-2 justify-between">
@@ -55,49 +55,47 @@ const Card = ({
   );
 };
 
-export const BlogCard = ({
-  props,
+const BlogCard = ({
+  id,
+  title,
+  description,
+  date,
+  tag,
+  imgUrl,
+  publisher,
+  readingTime,
   headerTag,
-}: {
-  props: Partial<ArticleBlogProps>;
-  headerTag: "h2" | "h3" | "h4" | "h5" | "h6";
-}) => {
-  const HeaderTag = headerTag; // Dynamic header tag
+}: Partial<TagsType> & { headerTag: "h2" | "h3" | "h4" | "h5" | "h6" }) => {
+  const HeaderTag = `${headerTag}` as keyof JSX.IntrinsicElements; // Dynamically setting header tag
   return (
     <figure className=" rounded-3xl flex flex-col gap-y-2 justify-between">
       <div className="flex flex-col gap-1">
         <Image
-          src={"https://fastly.picsum.photos/id/496/500/500.jpg?hmac=KxPC_ARSFICclZtKZwZVr9g9VMXx9xE-fl0Oj-PE4sg"}
-          alt="beaches pictures"
+          src={imgUrl || ""}
+          alt={title || ""}
           width={450}
           height={300}
           style={{ width: "100%", height: "250px" }}
           className="rounded-xl flex-shrink-0 mb-3 object-fill"
         />
         <span className="flex gap-x-2 items-center">
-          <Tags tags={"Technology"} /> <span className="text-cta-text">•</span>
+          <Tags tags={tag || "None"} /> <span className="text-cta-text">•</span>
           <time className="text-sm text-copy-secondary font-medium">
-            {new Date(props.date!).toDateString().split(" ").slice(1).join(" ")}
+            {new Date(date!).toDateString().split(" ").slice(1).join(" ")}
           </time>
         </span>
-        <Link href={`/blog/#}`} prefetch={false}>
-        <HeaderTag className="md:text-xl font-semibold text-base line-clamp-2 hover:underline">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt eveniet
-          aut fuga sapiente magnam quo veritatis exercitationem obcaecati rerum,
-          vitae corrupti mollitia vel quasi odio architecto, ex officiis ab
-          accusantium.
-        </HeaderTag>
+        <Link href={`/blog/${id}`} prefetch={false}>
+          <HeaderTag className="md:text-xl font-semibold text-base line-clamp-2 hover:underline">
+            {title || "Untitled"}
+          </HeaderTag>
         </Link>
         <figcaption className="text-copy-secondary text-sm line-clamp-3">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam cum
-          eveniet, aliquid harum sunt dolore magni deserunt nesciunt
-          necessitatibus nam dolorem. Aliquid reiciendis excepturi illum nobis
-          ipsam. Et, repellendus necessitatibus!
+          {description}
         </figcaption>
       </div>
       <div className="flex flex-row gap-2 pt-4 items-center text-copy-secondary">
         <Link
-          href={`/author/test`}
+          href={`/author/test`} // TODO : FIX THIS LINK TO DYNAMIC //
           prefetch={false}
           className="text-xs hover:underline flex gap-x-2 items-center"
         >
@@ -109,12 +107,14 @@ export const BlogCard = ({
             style={{ width: "20px", height: "20px", objectFit: "cover" }}
             className="rounded-full flex-shrink-0"
           />
-          Auhtor
+          {publisher}
         </Link>
-        •<p className="text-xs">5 min read</p>
+        •<p className="text-xs">{readingTime} min read</p>
       </div>
     </figure>
   );
 };
 
-export default memo(Card);
+const Card = memo(MemoCard);
+
+export { Card, BlogCard };

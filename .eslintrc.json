@@ -1,3 +1,16 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "next/core-web-vitals"
+  ],
+  "plugins": ["import"],
+  "rules": {
+    "no-console": "error",      // Enforce no-console in both development and production
+    "no-debugger": "error",     // Disallow debugger statements
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "import/no-unresolved": "error",
+    "import/named": "error",
+    "import/default": "error",
+    "import/namespace": "error"
+  }
 }

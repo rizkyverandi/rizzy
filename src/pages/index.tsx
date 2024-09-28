@@ -1,6 +1,6 @@
 import SectionWrapper from "@/components/SectionWrapper";
 import Container from "@/components/Container";
-import Card from "@/components/Card";
+import { Card } from "@/components/Card";
 import Paragraph from "@/components/Paragraph";
 import BlinkingText from "@/components/BlinkingText";
 import List from "@/components/List";

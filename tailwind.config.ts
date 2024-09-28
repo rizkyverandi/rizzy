@@ -1,7 +1,8 @@
 import type { Config } from "tailwindcss";
 
+
 const config: Config = {
-  darkMode: ['selector', '[data-mode="dark"]'],
+  darkMode: ["selector", '[data-mode="dark"]'],
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -16,7 +17,8 @@ const config: Config = {
       },
       colors: {
         background: "rgba(var(--background))",
-        "toc" : "rgba(var(--toc))",
+        "copy-pagination" : "rgba(var(--copy-pagination))",
+        toc: "rgba(var(--toc))",
         border: "rgba(var(--border))",
         card: "rgba(var(--card))",
         "copy-primary": "rgba(var(--copy-primary))",
@@ -25,8 +27,7 @@ const config: Config = {
         "cta-active": "rgba(var(--cta-active))",
         "cta-text": "rgba(var(--cta-text))",
         "cta-text-secondary": "rgba(var(--cta-text-secondary))",
-
-        grape: "rgba(var(--grape))",
+        "cta-text-pagination" : "rgba(var(--cta-text-pagination))",
       },
     },
   },

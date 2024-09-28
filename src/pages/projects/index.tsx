@@ -4,7 +4,7 @@ import BlinkingText from "@/components/BlinkingText";
 import Paragraph from "@/components/Paragraph";
 import useHead from "@/utils/useHead";
 import { ProjectType } from "@/types/project";
-import Card from "@/components/Card";
+import { Card } from "@/components/Card";
 import { loadProjects } from "@/libs/project";
 import OnViewAnimation from "@/components/OnViewAnimation";
 
@@ -12,7 +12,8 @@ const index = ({ project }: { project: ProjectType[] }) => {
   const Head = () =>
     useHead({
       title: "Projects | Rizzy Personal Website",
-      description: "Explore some innovative projects at Rizzy's repository. Get insights into our latest work and the impact Rizzy's made.",
+      description:
+        "Explore some innovative projects at Rizzy's repository. Get insights into our latest work and the impact Rizzy's made.",
     });
   return (
     <>

@@ -8,6 +8,7 @@ import { getPostMeta } from "@/libs/getPosts";
 import { TagsType } from "@/types/tags";
 import OnViewAnimation from "@/components/OnViewAnimation";
 import { BlogCard } from "@/components/Card";
+import Pagination  from "@/components/Pagination";
 
 const index = ({ posts }: { posts: TagsType[] }) => {
   const Head = () =>
@@ -30,25 +31,24 @@ const index = ({ posts }: { posts: TagsType[] }) => {
             </Paragraph>
             <OnViewAnimation>
               <div className="grid grid-cols-1 md:grid-cols-3 md:gap-x-4 md:gap-y-6 md:space-y-0 space-y-6">
-                <BlogCard props={posts[0]} headerTag="h2" />
-                <BlogCard props={posts[0]} headerTag="h2" />
-                <BlogCard props={posts[0]} headerTag="h2" />
-                <BlogCard props={posts[0]} headerTag="h2" />
-                <BlogCard props={posts[0]} headerTag="h2" />
-                <BlogCard props={posts[0]} headerTag="h2" />
+                {posts.map((data, index) => {
+                  return (
+                    <BlogCard
+                      title={data.title}
+                      date={data.date}
+                      id={data.id}
+                      description={data.description}
+                      tag={data.tag}
+                      imgUrl={data.imgUrl}
+                      publisher={data.publisher}
+                      readingTime={data.readingTime}
+                      key={index}
+                      headerTag="h2"
+                    />
+                  );
+                })}
               </div>
-            </OnViewAnimation>
-            <OnViewAnimation>
-              {posts.map((data, index) => {
-                return (
-                  <List
-                    title={data.title}
-                    date={data.date}
-                    url={`/blog/${data.id}`}
-                    key={index}
-                  />
-                );
-              })}
+              <Pagination totalPages={3} />
             </OnViewAnimation>
           </div>
         </Container>
