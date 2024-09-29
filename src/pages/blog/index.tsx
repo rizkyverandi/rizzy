@@ -3,12 +3,12 @@ import Container from "@/components/Container";
 import BlinkingText from "@/components/BlinkingText";
 import Paragraph from "@/components/Paragraph";
 import useHead from "@/utils/useHead";
-import List from "@/components/List";
 import { getPostMeta } from "@/libs/getPosts";
 import { TagsType } from "@/types/tags";
 import OnViewAnimation from "@/components/OnViewAnimation";
 import { BlogCard } from "@/components/Card";
-import Pagination  from "@/components/Pagination";
+import Pagination from "@/components/Pagination";
+import { useState } from "react";
 
 const index = ({ posts }: { posts: TagsType[] }) => {
   const Head = () =>
@@ -17,6 +17,18 @@ const index = ({ posts }: { posts: TagsType[] }) => {
       description:
         "Stay updated with the latest insights, lifestyle, web development, music, and references through Rizzy blog. Dive into expert articles, how-tos, and thought that help you stay ahead. Join the conversation today.",
     });
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(3);
+
+  const lastPostIndex = currentPage * postsPerPage;
+  const firstPostIndex = lastPostIndex - postsPerPage;
+  let currentPosts;
+
+  if (posts != null) {
+    currentPosts = posts.slice(firstPostIndex, lastPostIndex);
+  }
+
   return (
     <>
       <Head />
@@ -31,24 +43,29 @@ const index = ({ posts }: { posts: TagsType[] }) => {
             </Paragraph>
             <OnViewAnimation>
               <div className="grid grid-cols-1 md:grid-cols-3 md:gap-x-4 md:gap-y-6 md:space-y-0 space-y-6">
-                {posts.map((data, index) => {
-                  return (
-                    <BlogCard
-                      title={data.title}
-                      date={data.date}
-                      id={data.id}
-                      description={data.description}
-                      tag={data.tag}
-                      imgUrl={data.imgUrl}
-                      publisher={data.publisher}
-                      readingTime={data.readingTime}
-                      key={index}
-                      headerTag="h2"
-                    />
-                  );
-                })}
+                {currentPosts &&
+                  currentPosts.map((data, index) => {
+                    return (
+                      <BlogCard
+                        title={data.title}
+                        date={data.date}
+                        id={data.id}
+                        description={data.description}
+                        tag={data.tag}
+                        imgUrl={data.imgUrl}
+                        publisher={data.publisher}
+                        readingTime={data.readingTime}
+                        key={index}
+                        headerTag="h2"
+                      />
+                    );
+                  })}
               </div>
-              <Pagination totalPages={3} />
+              <Pagination
+                totalPages={Math.ceil(posts.length / postsPerPage)}
+                setCurrentPage={setCurrentPage}
+                currentPage={currentPage}
+              />
             </OnViewAnimation>
           </div>
         </Container>

@@ -1,4 +1,3 @@
-import { mock } from "node:test";
 import React, { useState } from "react";
 import { MdOutlineArrowDropDownCircle } from "react-icons/md";
 
@@ -44,7 +43,7 @@ const mockData = [
 ];
 
 const TableOfContent = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   const toggleOpen = (event: any) => {
     setIsOpen(event.target.open);
@@ -72,27 +71,35 @@ const TableOfContent = () => {
           />
         </summary>
         <nav className="text-cta-text text-sm mt-3 markdown-toc px-4">
-          <ol className="list-decimal list-inside space-y-2 ">
+          <ol className="list-decimal list-inside space-y-3">
             {mockData.map((data, index) => {
               return (
                 <li key={index}>
-                  <a href={`#${data.main.replace(/\s+/g, "_")}`} className="underline font-medium">
+                  <a
+                    href={`#${data.main.replace(/\s+/g, "_")}`}
+                    className="underline font-medium"
+                  >
                     {data.main}
                   </a>
-                  <ol className="list-decimal list-inside ml-6 space-y-2 text-cta-text">
-                    {data.sub.map((value, key) => {
-                      return (
-                        <li key={key}>
-                          <a href={`#${value.main.replace(/\s+/g, "_")}`} className="underline font-medium">
-                            {value.main}
-                          </a>
-                        </li>
-                      );
-                    })}
-                  </ol>
+                  {data.sub.length > 0 && (
+                    <ol className="list-decimal list-inside ml-6 mt-3 space-y-3 text-cta-text">
+                      {data.sub.map((value, key) => {
+                        return (
+                          <li key={key}>
+                            <a
+                              href={`#${value.main.replace(/\s+/g, "_")}`}
+                              className="underline font-medium"
+                            >
+                              {value.main}
+                            </a>
+                          </li>
+                        );
+                      })}
+                    </ol>
+                  )}
                 </li>
               );
-            })}        
+            })}
           </ol>
         </nav>
       </details>

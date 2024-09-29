@@ -67,7 +67,7 @@ const index = ({ post }: { post: MetaTags }) => {
                     >
                       <Image
                         src={"https://picsum.photos/500/500"}
-                        alt="beaches pictures" // TODO: add alt
+                        alt={`Illustratuion that represent this ${post.meta.title} article.`}
                         width={0}
                         height={0}
                         style={{
@@ -107,11 +107,7 @@ const index = ({ post }: { post: MetaTags }) => {
               dangerouslySetInnerHTML={{ __html: post.content }}
               className="markdown-content"
             ></section>
-            {/* <div className="flex flex-row gap-x-4">
-              {post.meta.tags.map((tag, index) => {
-                return <Tags key={index} tags={tag} />;
-              })}
-            </div> */}
+          //TODO: add related articles option using card and share button to social media using react-share
           </Container>
         </SectionWrapper>
       </article>

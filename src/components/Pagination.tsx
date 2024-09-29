@@ -2,11 +2,17 @@ import Utils from "@/utils/utils";
 import { useState, useEffect } from "react";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 
-
-const Pagination = ({ totalPages }: { totalPages: number }) => {
+const Pagination = ({
+  totalPages,
+  setCurrentPage,
+  currentPage,
+}: {
+  totalPages: number;
+  setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
+  currentPage: number;
+}) => {
   Utils.logComponent("Pagination rendered");
 
-  const [currentPage, setCurrentPage] = useState(1);
   const [isPrev, setIsPrev] = useState(true);
   const [isNext, setIsNext] = useState(false);
 
