@@ -7,7 +7,7 @@ const Footer = ({ className }: { className?: string }) => {
   return (
     <footer className={`p-4 w-full ${className} text-cta-text`}>
       <nav className="wrapper container flex justify-between">
-        <div className="flex md:flex-row flex-col items-center md:justify-between justify-center m-auto w-full">
+        <div className="text-sm flex md:flex-row flex-col items-center md:justify-between justify-center m-auto w-full">
           <ul className="flex flex-row gap-6 ">
             <li>
               <Link
@@ -48,7 +48,7 @@ const Footer = ({ className }: { className?: string }) => {
           </ul>
           <span className="flex flex-row items-center gap-2">
             Copyright
-            <FaRegCopyright /> Rizky Verandi 2024
+            <FaRegCopyright /> Rizky Verandi 2024, All Rights Reserved.
           </span>
         </div>
       </nav>

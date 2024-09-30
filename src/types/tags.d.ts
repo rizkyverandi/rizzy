@@ -15,8 +15,8 @@ export type TagsType = {
     title: string;
     url: string;
   };
-
-
+  next?: Pick<TagsType, "title" | "id" | "imgUrl"> | null;
+  prev?: Pick<TagsType, "title" | "id" | "imgUrl"> | null;
 };
 
 export type MetaTags = {

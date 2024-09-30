@@ -1,8 +1,8 @@
 import { ProjectType } from "@/types/project";
 import { FaExternalLinkAlt } from "react-icons/fa";
+import { HiChevronLeft, HiChevronRight } from "react-icons/hi2";
 import Utils from "@/utils/utils";
 import { memo } from "react";
-import { ArticleBlogProps } from "@/types/article";
 import Image from "next/image";
 import Tags from "./Tags";
 import Link from "next/link";
@@ -95,7 +95,7 @@ const BlogCard = ({
       </div>
       <div className="flex flex-row gap-2 pt-4 items-center text-copy-secondary">
         <Link
-          href={`/author/test`} // TODO : FIX THIS LINK TO DYNAMIC //
+          href={`/author/${publisher?.replace(" ", "-").toLowerCase()}`} // TODO : FIX THIS LINK TO DYNAMIC //
           prefetch={false}
           className="text-xs hover:underline flex gap-x-2 items-center"
         >
@@ -115,6 +115,64 @@ const BlogCard = ({
   );
 };
 
+const RelatedCard = ({
+  imgUrl,
+  title,
+  id,
+  arrowDirection = "left",
+}: {
+  imgUrl: string;
+  title: string;
+  id: string;
+  arrowDirection: "left" | "right";
+}) => {
+  return (
+    <figure className="rounded-3xl flex flex-col gap-y-2 justify-between">
+      <div>
+        <Link
+          href={`/blog/${id}`}
+          prefetch={false}
+          className="flex flex-row gap-4"
+        >
+          <Image
+            src={imgUrl || ""}
+            alt={title || ""}
+            width={100}
+            height={80}
+            className="rounded-xl flex-shrink-0 mb-3 object-fill "
+          />
+          <h3 className="text-base font-semibold hover:underline">
+            <span className="line-clamp-3">
+              {title + "TESTING ADDITIONAL TEXT | JUST MAKE IT LONGER." ||
+                "Untitled"}
+            </span>
+            {/*TODO: add tag and delete the additional text after its done*/}
+          </h3>
+        </Link>
+      </div>
+      <Link
+        href={`/blog/${id}`}
+        className={`flex gap-x-2 hover:underline underline-offset-4 text-copy-secondary items-center ${
+          arrowDirection === "right" ? "flex justify-end" : ""
+        }`}
+      >
+        {arrowDirection === "right" && (
+          <>
+            Next
+            <HiChevronRight size={20} />
+          </>
+        )}
+        {arrowDirection === "left" && (
+          <>
+            <HiChevronLeft size={20} />
+            Previous
+          </>
+        )}
+      </Link>
+    </figure>
+  );
+};
+
 const Card = memo(MemoCard);
 
-export { Card, BlogCard };
+export { Card, BlogCard, RelatedCard };

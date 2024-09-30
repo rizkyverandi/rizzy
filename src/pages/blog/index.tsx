@@ -39,7 +39,7 @@ const index = ({ posts }: { posts: TagsType[] }) => {
               Blogs <BlinkingText text="." />
             </h1>
             <Paragraph>
-              Articles about lifestyle, web development, music, and references.
+              Articles about foods, travel, web development, music, and more.
             </Paragraph>
             <OnViewAnimation>
               <div className="grid grid-cols-1 md:grid-cols-3 md:gap-x-4 md:gap-y-6 md:space-y-0 space-y-6">

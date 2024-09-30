@@ -13,6 +13,19 @@ import Image from "next/image";
 import Link from "next/link";
 import TableOfContent from "@/components/TableOfContent";
 import Intro from "@/components/Intro";
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  TwitterShareButton,
+  TwitterIcon,
+  WhatsappShareButton,
+  WhatsappIcon,
+  TelegramShareButton,
+  TelegramIcon,
+  LinkedinShareButton,
+  LinkedinIcon,
+} from "react-share";
+import { RelatedCard } from "@/components/Card";
 
 type Props = {
   params: {
@@ -20,7 +33,7 @@ type Props = {
   };
 };
 
-const index = ({ post }: { post: MetaTags }) => {
+const index = ({ post, meta }: { post: MetaTags; meta: TagsType[] }) => {
   const Head = () =>
     useHead({
       title: post.meta.title,
@@ -29,6 +42,11 @@ const index = ({ post }: { post: MetaTags }) => {
       author: "Rizky Verandi",
       slug: post.meta.id,
     });
+
+  const linkedArticles = meta.find(
+    (meta: TagsType) => meta.id === post.meta.id
+  );
+  console.log(linkedArticles);
 
   return (
     <>
@@ -107,7 +125,55 @@ const index = ({ post }: { post: MetaTags }) => {
               dangerouslySetInnerHTML={{ __html: post.content }}
               className="markdown-content"
             ></section>
-          //TODO: add related articles option using card and share button to social media using react-share
+            <section className="flex flex-col gap-3">
+              {/* //TODO: add related articles option using card and share button to social media using react-share */}
+              <div>
+                <strong className="text-md">Share this article :</strong>
+              </div>
+              <div className="flex gap-3">
+                <FacebookShareButton
+                  url={`https://rizzy.vercel.app/blog/${post.meta.id}`}
+                  children={<FacebookIcon size={32} round />}
+                />
+                <TwitterShareButton
+                  url={`https://rizzy.vercel.app/blog/${post.meta.id}`}
+                  children={<TwitterIcon size={32} round />}
+                />
+                <WhatsappShareButton
+                  url={`https://rizzy.vercel.app/blog/${post.meta.id}`}
+                  children={<WhatsappIcon size={32} round />}
+                />
+                <TelegramShareButton
+                  url={`https://rizzy.vercel.app/blog/${post.meta.id}`}
+                  children={<TelegramIcon size={32} round />}
+                />
+                <LinkedinShareButton
+                  url={`https://rizzy.vercel.app/blog/${post.meta.id}`}
+                  children={<LinkedinIcon size={32} round />}
+                />
+              </div>
+            </section>
+            <section className="grid grid-cols-2 gap-x-3 md:pt-8 pt-4">
+              {/*TODO: add next and previous article option using card*/}
+              {!linkedArticles?.prev && <div></div>}
+              {linkedArticles?.prev && (
+                <RelatedCard
+                  imgUrl={linkedArticles?.prev?.imgUrl}
+                  title={linkedArticles?.prev?.title}
+                  id={linkedArticles?.prev?.id}
+                  arrowDirection="left"
+                />
+              )}
+              {!linkedArticles?.next && <div></div>}
+              {linkedArticles?.next && (
+                <RelatedCard
+                  imgUrl={linkedArticles?.next?.imgUrl}
+                  title={linkedArticles?.next?.title}
+                  id={linkedArticles?.next?.id}
+                  arrowDirection="right"
+                />
+              )}
+            </section>
           </Container>
         </SectionWrapper>
       </article>
@@ -117,6 +183,7 @@ const index = ({ post }: { post: MetaTags }) => {
 
 export async function getStaticProps({ params: { slug } }: Props) {
   const post = await getPostByName(`${slug}.mdx`);
+  const meta = await getPostMeta();
 
   if (!post) {
     return {
@@ -124,7 +191,7 @@ export async function getStaticProps({ params: { slug } }: Props) {
     };
   }
 
-  return { props: { post } };
+  return { props: { post, meta } };
 }
 
 export const getStaticPaths = async () => {

@@ -28,15 +28,39 @@ export const getPostMeta = async (): Promise<TagsType[] | undefined> => {
     .filter((path) => path.endsWith(".mdx"));
 
   const posts: TagsType[] = [];
-
-  for (const file of repoArrays) {
-    const post = await getPostByName(file);
+  for (const index in repoArrays) {
+    const post = await getPostByName(repoArrays[index]);
     if (post) {
+      // Add previous and next posts
+      const currentIndex = Number(index);
+      const prevPosts = posts[currentIndex - 1] || null;
+      if (prevPosts) {
+        prevPosts.next = {
+          title: post.meta.title,
+          id: post.meta.id,
+          imgUrl: post.meta.imgUrl,
+        };
+        prevPosts.prev = posts[currentIndex - 2]
+          ? {
+              title: posts[currentIndex - 2].title,
+              id: posts[currentIndex - 2].id,
+              imgUrl: posts[currentIndex - 2].imgUrl,
+            }
+          : null;
+
+        if (currentIndex === repoArrays.length - 1) {
+          post.meta.next = null;
+          post.meta.prev = {
+            title: posts[currentIndex - 1].title,
+            id: posts[currentIndex - 1].id,
+            imgUrl: posts[currentIndex - 1].imgUrl,
+          };
+        }
+      }
       const { meta } = post;
       posts.push(meta);
     }
   }
-
   return posts.sort((a, b) => (a.date < b.date ? 1 : -1));
 };
 
