@@ -7,7 +7,6 @@ import "highlight.js/styles/github-dark.css";
 import "prismjs";
 import "prismjs/components/prism-typescript"; // Import TypeScript language definition
 import "prismjs/themes/prism-tomorrow.css";
-import useHead from "@/utils/useHead";
 import Breadcrumb from "@/components/Breadcrumb";
 import Image from "next/image";
 import Link from "next/link";
@@ -46,6 +45,9 @@ const index = ({ post, meta }: { post: MetaTags; meta: TagsType[] }) => {
         <meta name="description" content={post.meta.description} />
         <meta name="keywords" content={post.meta.keyword.join(", ")} />
         <meta name="author" content="Rizky Verandi" />
+        <link rel="canonical" href={"https://rizzy-gamma.vercel.app/blog/" + post.meta.id + "/"} />
+
+        {/* ================ Open Graph (Discord, Facebook, LinkedIn, etc.) Meta Tags ================ */}
         <meta property="og:title" content={post.meta.title} />
         <meta property="og:description" content={post.meta.description} />
         <meta property="og:image" content={post.meta.imgUrl} />
@@ -55,6 +57,12 @@ const index = ({ post, meta }: { post: MetaTags; meta: TagsType[] }) => {
         />
         <meta property="og:type" content="article" />
         <meta property="og:site_name" content="Rizzy's Blog" />
+        {/* ================ Additional Open Graph (Discord) Meta Tags ================ */}
+        <meta name="theme-color" content="#7289da" />
+        {/* ================ Additional Open Graph (LinkedIn) Meta Tags ================ */}
+        <meta property="og:locale" content="en_US" />
+        {/* ================ Additional Open Graph (Instagram) Meta Tags ================ */}
+        <meta property="og:type" content="instapp:photo" />
 
         {/* Twitter Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -64,38 +72,11 @@ const index = ({ post, meta }: { post: MetaTags; meta: TagsType[] }) => {
         <meta name="twitter:site" content="@your_site" />
         <meta name="twitter:creator" content="@your_handle" />
 
-        {/* ================ LinkedIn Meta Tags ================ */}
-        <meta property="og:title" content={post.meta.title} />
-        <meta property="og:description" content={post.meta.description} />
-        <meta property="og:image" content={post.meta.imgUrl} />
-        <meta
-          property="og:url"
-          content={"https://rizzy-gamma.vercel.app/blog/" + post.meta.id + "/"}
-        />
-        <meta property="og:type" content={"article"} />
-        <meta property="og:locale" content="en_US" />
-
         {/* ================ Telegram Meta Tags ================ */}
         <meta name="telegram:title" content={post.meta.title} />
         <meta name="telegram:description" content={post.meta.description} />
         <meta name="telegram:image" content={post.meta.imgUrl} />
         <meta name="telegram:card" content="summary_large_image" />
-
-        {/* ================ Discord Meta Tags ================ */}
-        <meta name="theme-color" content="#7289da" />
-        <meta property="og:title" content={post.meta.title} />
-        <meta property="og:description" content={post.meta.description} />
-        <meta property="og:image" content={post.meta.imgUrl} />
-        <meta property="og:type" content={"website"} />
-        <meta property="og:url" content={"https://rizzy-gamma.vercel.app/blog/" + post.meta.id + "/"} />
-
-        {/* ================ Instagram Meta Tags (uses OpenGraph) ================ */}
-        <meta property="og:title" content={post.meta.title} />
-        <meta property="og:description" content={post.meta.description} />
-        <meta property="og:image" content={post.meta.imgUrl} />
-
-        <meta property="og:url" content={"https://rizzy-gamma.vercel.app/blog/" + post.meta.id + "/"} />
-        <meta property="og:type" content="instapp:photo" />
       </Head>
       <article>
         <SectionWrapper>

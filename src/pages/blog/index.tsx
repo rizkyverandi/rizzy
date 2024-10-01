@@ -2,21 +2,15 @@ import SectionWrapper from "@/components/SectionWrapper";
 import Container from "@/components/Container";
 import BlinkingText from "@/components/BlinkingText";
 import Paragraph from "@/components/Paragraph";
-import useHead from "@/utils/useHead";
 import { getPostMeta } from "@/libs/getPosts";
 import { TagsType } from "@/types/tags";
 import OnViewAnimation from "@/components/OnViewAnimation";
 import { BlogCard } from "@/components/Card";
 import Pagination from "@/components/Pagination";
 import { useState } from "react";
+//TODO: Add next/head for seo tags 
 
 const index = ({ posts }: { posts: TagsType[] }) => {
-  const Head = () =>
-    useHead({
-      title: "Blogs | Rizzy Personal Website",
-      description:
-        "Stay updated with the latest insights, lifestyle, web development, music, and references through Rizzy blog. Dive into expert articles, how-tos, and thought that help you stay ahead. Join the conversation today.",
-    });
 
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(3);
@@ -31,7 +25,6 @@ const index = ({ posts }: { posts: TagsType[] }) => {
 
   return (
     <>
-      <Head />
       <SectionWrapper>
         <Container className="py-20">
           <div className="flex flex-col gap-y-5">

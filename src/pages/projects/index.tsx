@@ -2,22 +2,15 @@ import SectionWrapper from "@/components/SectionWrapper";
 import Container from "@/components/Container";
 import BlinkingText from "@/components/BlinkingText";
 import Paragraph from "@/components/Paragraph";
-import useHead from "@/utils/useHead";
 import { ProjectType } from "@/types/project";
 import { Card } from "@/components/Card";
 import { loadProjects } from "@/libs/project";
 import OnViewAnimation from "@/components/OnViewAnimation";
+//TODO: Add next/head for seo tags
 
 const index = ({ project }: { project: ProjectType[] }) => {
-  const Head = () =>
-    useHead({
-      title: "Projects | Rizzy Personal Website",
-      description:
-        "Explore some innovative projects at Rizzy's repository. Get insights into our latest work and the impact Rizzy's made.",
-    });
   return (
     <>
-      <Head />
       <SectionWrapper>
         <Container className="py-20 text-cta-text">
           <div className="flex flex-col gap-y-5">
