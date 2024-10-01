@@ -215,3 +215,13 @@ li {
 .fade-in.loaded {
   opacity: 1;
 }
+
+details[open] .arrow-icon {
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+}
+
+.arrow-icon {
+  transition: transform 0.3s ease;
+  -webkit-transition: -webkit-transform 0.3s ease;
+}

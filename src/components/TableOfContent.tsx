@@ -45,8 +45,9 @@ const mockData = [
 const TableOfContent = () => {
   const [isOpen, setIsOpen] = useState(true);
 
-  const toggleOpen = (event: any) => {
-    setIsOpen(event.target.open);
+  const toggleOpen = (event: React.SyntheticEvent<HTMLDetailsElement>) => {
+    const detailsElement = event.currentTarget;
+    setIsOpen(detailsElement.open);
   };
 
   return (
@@ -63,11 +64,12 @@ const TableOfContent = () => {
           Contents
           <MdOutlineArrowDropDownCircle
             style={{
-              transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
+              //transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
               transition: "transform 0.3s ease",
               marginLeft: "10px",
             }}
             size={25} // Adjust the size as needed
+            className="arrow-icon"
           />
         </summary>
         <nav className="text-cta-text text-sm mt-3 markdown-toc px-4">

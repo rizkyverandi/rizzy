@@ -12,7 +12,6 @@ type HeadProps = {
   type?: "website" | "article" | "profile" | undefined;
 };
 
-
 const useHead = (props: HeadProps) => {
   const [fullUrl, setFullUrl] = useState("");
   useEffect(() => {
@@ -50,6 +49,39 @@ const useHead = (props: HeadProps) => {
       {props.imageUrl && <meta name="twitter:image" content={props.imageUrl} />}
       <meta name="twitter:site" content="@site_handle"></meta>
       <meta name="twitter:creator" content="@creator_handle"></meta>
+
+      {/* ================ LinkedIn Meta Tags ================ */}
+      <meta property="og:title" content={props.title} />
+      <meta property="og:description" content={props.description} />
+      {props.imageUrl && <meta property="og:image" content={props.imageUrl} />}
+      <meta property="og:url" content={`${fullUrl}${props.slug}`} />
+      <meta property="og:type" content={props.type || "article"} />
+      <meta property="og:locale" content="en_US" />
+
+      {/* ================ Telegram Meta Tags ================ */}
+      <meta name="telegram:title" content={props.title} />
+      <meta name="telegram:description" content={props.description} />
+      {props.imageUrl && (
+        <meta name="telegram:image" content={props.imageUrl} />
+      )}
+      <meta name="telegram:card" content="summary_large_image" />
+
+      {/* ================ Discord Meta Tags ================ */}
+      <meta name="theme-color" content="#7289da" />
+      <meta property="og:title" content={props.title} />
+      <meta property="og:description" content={props.description} />
+      {props.imageUrl && <meta property="og:image" content={props.imageUrl} />}
+      <meta property="og:type" content={props.type || "website"} />
+      {props.slug && (
+        <meta property="og:url" content={`${fullUrl}${props.slug}`} />
+      )}
+
+      {/* ================ Instagram Meta Tags (uses OpenGraph) ================ */}
+      <meta property="og:title" content={props.title} />
+      <meta property="og:description" content={props.description} />
+      {props.imageUrl && <meta property="og:image" content={props.imageUrl} />}
+      <meta property="og:url" content={`${fullUrl}${props.slug}`} />
+      <meta property="og:type" content="instapp:photo" />
     </Head>
   );
 };

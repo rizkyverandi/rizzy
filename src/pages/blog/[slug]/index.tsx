@@ -41,12 +41,12 @@ const index = ({ post, meta }: { post: MetaTags; meta: TagsType[] }) => {
       keywords: post.meta.keyword,
       author: "Rizky Verandi",
       slug: post.meta.id,
+      imageUrl: post.meta.imgUrl,
     });
 
   const linkedArticles = meta.find(
     (meta: TagsType) => meta.id === post.meta.id
   );
-  console.log(linkedArticles);
 
   return (
     <>
