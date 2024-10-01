@@ -127,29 +127,28 @@ const RelatedCard = ({
   arrowDirection: "left" | "right";
 }) => {
   return (
-    <figure className="rounded-3xl flex flex-col gap-y-2 justify-between">
-      <div>
-        <Link
-          href={`/blog/${id}`}
-          prefetch={false}
-          className="flex flex-row gap-4"
-        >
-          <Image
-            src={imgUrl || ""}
-            alt={title || ""}
-            width={100}
-            height={80}
-            className="rounded-xl flex-shrink-0 mb-3 object-fill "
-          />
-          <h3 className="text-base font-semibold hover:underline">
-            <span className="line-clamp-3">
-              {title + "TESTING ADDITIONAL TEXT | JUST MAKE IT LONGER." ||
-                "Untitled"}
-            </span>
-            {/*TODO: add tag and delete the additional text after its done*/}
-          </h3>
-        </Link>
+    <figure className="flex flex-col gap-y-2 justify-between max-h-[200px]">
+      <div className="flex flex-row gap-2">
+        <Image
+          src={imgUrl || ""}
+          alt={title || ""}
+          width={100}
+          height={80}
+          className="rounded-xl flex-shrink-0 mb-3 object-cover"
+        />
+        <figcaption className="flex flex-col gap-3 mt-3 mb-2">
+          <Tags tags={"None"} className="md:text-sm text-[10px] leading-3" />
+          <Link href={`/blog/${id}`} prefetch={false}>
+            <h3 className="md:text-base text-xs max-h-max min-w-min font-semibold hover:underline">
+              <span className="line-clamp-3 break-words">
+                {title || "Untitled"}
+              </span>
+              {/*TODO: add tag and delete the additional text after its done*/}
+            </h3>
+          </Link>
+        </figcaption>
       </div>
+
       <Link
         href={`/blog/${id}`}
         className={`flex gap-x-2 hover:underline underline-offset-4 text-copy-secondary items-center ${
