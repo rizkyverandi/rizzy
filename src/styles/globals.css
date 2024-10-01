@@ -221,6 +221,14 @@ details[open] .arrow-icon {
   -webkit-transform: rotate(180deg);
 }
 
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details summary {
+  list-style: none;
+}
+
 .arrow-icon {
   transition: transform 0.3s ease;
   -webkit-transition: -webkit-transform 0.3s ease;

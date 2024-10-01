@@ -26,6 +26,7 @@ import {
 } from "react-share";
 import { RelatedCard } from "@/components/Card";
 import Head from "next/head";
+import useHead from "@/utils/useHead";
 
 type Props = {
   params: {
@@ -37,47 +38,24 @@ const index = ({ post, meta }: { post: MetaTags; meta: TagsType[] }) => {
   const linkedArticles = meta.find(
     (meta: TagsType) => meta.id === post.meta.id
   );
+
+  const Head = () =>
+    useHead({
+      title: post.meta.title,
+      description: post.meta.description,
+      imageUrl: post.meta.imgUrl,
+      slug: post.meta.id,
+      keywords: post.meta.keywords,
+      type: "article",
+      author: post.meta.publisher,
+    });
+
+  if (!post) {
+    return <div>Loading...</div>; // Show a loading state while fetching
+  }
   return (
     <>
-      <Head>
-        <title>{post.meta.title}</title>
-        <meta name="description" content={post.meta.description} key="description"/>
-        <meta name="keywords" content={post.meta.keywords.join(", ")}  key="keywords"/>
-        <meta name="author" content="Rizky Verandi" key="author"/>
-        <link rel="canonical" href={"https://rizzy-gamma.vercel.app/blog/" + post.meta.id + "/"} key="canonical"/>
-
-        {/* ================ Open Graph (Discord, Facebook, LinkedIn, etc.) Meta Tags ================ */}
-        <meta property="og:title" content={post.meta.title} key="og-title"/>
-        <meta property="og:description" content={post.meta.description} key="og-description"/>
-        <meta property="og:image" content={post.meta.imgUrl} key="og-image"/>
-        <meta
-          property="og:url"
-          content={"https://rizzy-gamma.vercel.app/blog/" + post.meta.id + "/"}
-          key="og-url"
-        />
-        <meta property="og:type" content="article" key="og-type"/>
-        <meta property="og:site_name" content="Rizzy's Blog" key="og-site-name"/>
-        {/* ================ Additional Open Graph (Discord) Meta Tags ================ */}
-        <meta name="theme-color" content="#7289da" key="og-theme-color"/>
-        {/* ================ Additional Open Graph (LinkedIn) Meta Tags ================ */}
-        <meta property="og:locale" content="en_US" key="og-locale"/>
-        {/* ================ Additional Open Graph (Instagram) Meta Tags ================ */}
-        {/* <meta property="og:type" content="instapp:photo" /> */}
-
-        {/* Twitter Meta Tags */}
-        <meta name="twitter:card" content="summary_large_image" key="twitter-card" />
-        <meta name="twitter:title" content={post.meta.title} key="twitter-title"/>
-        <meta name="twitter:description" content={post.meta.description} key="twitter-description"/>
-        <meta name="twitter:image" content={post.meta.imgUrl} key="twitter-image"/>
-        <meta name="twitter:site" content="@your_site" key="twitter-site"/>
-        <meta name="twitter:creator" content="@your_handle" key="twitter-creator"/>
-
-        {/* ================ Telegram Meta Tags ================ */}
-        <meta name="telegram:title" content={post.meta.title} key="telegram-title"/>
-        <meta name="telegram:description" content={post.meta.description} key="telegram-description"/>
-        <meta name="telegram:image" content={post.meta.imgUrl} key="telegram-image"/>
-        <meta name="telegram:card" content="summary_large_image" key="telegram-card"/>
-      </Head>
+      <Head />
       <article>
         <SectionWrapper>
           <Breadcrumb />
@@ -212,7 +190,7 @@ export async function getStaticProps({ params: { slug } }: Props) {
   const post = await getPostByName(`${slug}.mdx`);
   const meta = await getPostMeta();
 
-  if (!post) {
+  if (!post || !meta) {
     return {
       notFound: true, // Return a 404 page if the post is not found
     };
