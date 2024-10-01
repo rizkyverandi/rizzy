@@ -1,5 +1,5 @@
 import Head from "next/head";
-import React, { useState, useEffect } from "react";
+//import React, { useState, useEffect } from "react";
 
 type HeadProps = {
   title: string;
@@ -13,14 +13,7 @@ type HeadProps = {
 };
 
 const useHead = (props: HeadProps) => {
-  const [fullUrl, setFullUrl] = useState("");
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      // Get hostname when in the browser environment
-      const fullDomain = `${window.location.protocol}//${window.location.hostname}/`;
-      setFullUrl(fullDomain);
-    }
-  }, []);
+  const fullUrl = "https://rizzy-gamma.vercel.app/";
   return (
     <Head>
       <title>{props.title}</title>

@@ -26,6 +26,7 @@ import {
   LinkedinIcon,
 } from "react-share";
 import { RelatedCard } from "@/components/Card";
+import Head from "next/head";
 
 type Props = {
   params: {
@@ -34,23 +35,68 @@ type Props = {
 };
 
 const index = ({ post, meta }: { post: MetaTags; meta: TagsType[] }) => {
-  const Head = () =>
-    useHead({
-      title: post.meta.title,
-      description: post.meta.description,
-      keywords: post.meta.keyword,
-      author: "Rizky Verandi",
-      slug: post.meta.id,
-      imageUrl: post.meta.imgUrl,
-    });
-
   const linkedArticles = meta.find(
     (meta: TagsType) => meta.id === post.meta.id
   );
 
   return (
     <>
-      <Head />
+      <Head>
+        <title>{post.meta.title}</title>
+        <meta name="description" content={post.meta.description} />
+        <meta name="keywords" content={post.meta.keyword.join(", ")} />
+        <meta name="author" content="Rizky Verandi" />
+        <meta property="og:title" content={post.meta.title} />
+        <meta property="og:description" content={post.meta.description} />
+        <meta property="og:image" content={post.meta.imgUrl} />
+        <meta
+          property="og:url"
+          content={"https://rizzy-gamma.vercel.app/blog/" + post.meta.id + "/"}
+        />
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="Rizzy's Blog" />
+
+        {/* Twitter Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={post.meta.title} />
+        <meta name="twitter:description" content={post.meta.description} />
+        <meta name="twitter:image" content={post.meta.imgUrl} />
+        <meta name="twitter:site" content="@your_site" />
+        <meta name="twitter:creator" content="@your_handle" />
+
+        {/* ================ LinkedIn Meta Tags ================ */}
+        <meta property="og:title" content={post.meta.title} />
+        <meta property="og:description" content={post.meta.description} />
+        <meta property="og:image" content={post.meta.imgUrl} />
+        <meta
+          property="og:url"
+          content={"https://rizzy-gamma.vercel.app/blog/" + post.meta.id + "/"}
+        />
+        <meta property="og:type" content={"article"} />
+        <meta property="og:locale" content="en_US" />
+
+        {/* ================ Telegram Meta Tags ================ */}
+        <meta name="telegram:title" content={post.meta.title} />
+        <meta name="telegram:description" content={post.meta.description} />
+        <meta name="telegram:image" content={post.meta.imgUrl} />
+        <meta name="telegram:card" content="summary_large_image" />
+
+        {/* ================ Discord Meta Tags ================ */}
+        <meta name="theme-color" content="#7289da" />
+        <meta property="og:title" content={post.meta.title} />
+        <meta property="og:description" content={post.meta.description} />
+        <meta property="og:image" content={post.meta.imgUrl} />
+        <meta property="og:type" content={"website"} />
+        <meta property="og:url" content={"https://rizzy-gamma.vercel.app/blog/" + post.meta.id + "/"} />
+
+        {/* ================ Instagram Meta Tags (uses OpenGraph) ================ */}
+        <meta property="og:title" content={post.meta.title} />
+        <meta property="og:description" content={post.meta.description} />
+        <meta property="og:image" content={post.meta.imgUrl} />
+
+        <meta property="og:url" content={"https://rizzy-gamma.vercel.app/blog/" + post.meta.id + "/"} />
+        <meta property="og:type" content="instapp:photo" />
+      </Head>
       <article>
         <SectionWrapper>
           <Breadcrumb />
