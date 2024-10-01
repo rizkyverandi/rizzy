@@ -4,7 +4,7 @@ export type TagsType = {
   title: string;
   date: string;
   description: string;
-  keyword: string[];
+  keywords: string[];
   tag: string;
   imgUrl: string;
   publisher: string;

@@ -93,7 +93,7 @@ export const getPostByName = async (
       date: matter.data.date, //frontmatter.date,
       tag: matter.data.tag || null, //frontmatter.tags,
       description: matter.data.description || "",
-      keyword: matter.data.keyword || [],
+      keywords: matter.data.keywords || [],
       imgUrl: matter.data.imgUrl || "",
       publisher: matter.data.publisher || "",
       readingTime: matter.data.readingTime || 0,
