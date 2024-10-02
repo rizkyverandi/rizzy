@@ -65,12 +65,12 @@ const useHead = (props: HeadProps) => {
       <meta property="og:image" content={props.imageUrl} key="og-image" />
       <meta property="og:image:width" content="1200" key="og-image-width" />
       <meta property="og:image:height" content="630" key="og-image-height" />
-      <meta property="og:email" content="rizverandi@gmail.com" key="og-image" />
+      <meta property="og:email" content="rizverandi@gmail.com" key="og-email" />
       {props.phoneNumber && (
         <meta
           property="og:phone_number"
           content={props.phoneNumber}
-          key="og-image"
+          key="og-phone_number"
         />
       )}
       <meta

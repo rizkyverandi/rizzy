@@ -25,7 +25,6 @@ import {
   LinkedinIcon,
 } from "react-share";
 import { RelatedCard } from "@/components/Card";
-import Head from "next/head";
 import useHead from "@/utils/useHead";
 
 type Props = {
