@@ -42,15 +42,10 @@ const useHead = (props: HeadProps) => {
       {props.author && (
         <meta name="author" content={props.author} key="author" />
       )}
-      <link
-        rel="canonical"
-        href={`${props.canonicalUrl}`}
-        key="canonical"
-      />
+      <link rel="canonical" href={`${props.canonicalUrl}`} key="canonical" />
 
       {/* ================ Open Graph (Discord, Facebook, LinkedIn, etc.) Meta Tags ================ */}
       <meta property="og:title" content={props.title} key="og-title" />
-      <meta property="og:deteminer" content="auto" key="og-determiner" />
       <meta property="og:deteminer" content="auto" key="og-determiner" />
       <meta
         property="og:country_name"
@@ -62,9 +57,10 @@ const useHead = (props: HeadProps) => {
         content={props.description}
         key="og-description"
       />
-      <meta property="og:image" content={props.imageUrl} key="og-image" />
+
       <meta property="og:image:width" content="1200" key="og-image-width" />
       <meta property="og:image:height" content="630" key="og-image-height" />
+      <meta property="og:image" content={props.imageUrl} key="og-img" />
       <meta property="og:email" content="rizverandi@gmail.com" key="og-email" />
       {props.phoneNumber && (
         <meta
@@ -114,7 +110,7 @@ const useHead = (props: HeadProps) => {
         content="630"
         key="twitter-image-height"
       />
-      <meta name="twitter:site" content="@your_site" key="twitter-site" />
+      <meta name="twitter:site" content="@rizzywoopsie" key="twitter-site" />
       <meta
         name="twitter:creator"
         content="@your_handle"
@@ -133,7 +129,7 @@ const useHead = (props: HeadProps) => {
         content={props.imageUrl}
         key="telegram-image"
       />
-       <meta
+      <meta
         property="telegram:image:width"
         content="1200"
         key="telegram-image-width"
@@ -143,11 +139,7 @@ const useHead = (props: HeadProps) => {
         content="630"
         key="telegram-image-height"
       />
-      <meta
-        name="telegram:card"
-        content="summary"
-        key="telegram-card"
-      />
+      <meta name="telegram:card" content="summary" key="telegram-card" />
     </Head>
   );
 };
