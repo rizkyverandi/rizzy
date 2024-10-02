@@ -48,6 +48,9 @@ const index = ({ post, meta }: { post: MetaTags; meta: TagsType[] }) => {
       keywords: post.meta.keywords,
       type: "article",
       author: post.meta.publisher,
+      robots: "follow, index", 
+      locale: "id_ID",
+      canonicalUrl: `https://rizzy-gamma.vercel.app/blog/${post.meta.id}`,
     });
 
   if (!post) {
@@ -131,7 +134,6 @@ const index = ({ post, meta }: { post: MetaTags; meta: TagsType[] }) => {
               className="markdown-content"
             ></section>
             <section className="flex flex-col gap-3">
-              {/* //TODO: add related articles option using card and share button to social media using react-share */}
               <div>
                 <strong className="text-md">Share this article :</strong>
               </div>
@@ -159,7 +161,6 @@ const index = ({ post, meta }: { post: MetaTags; meta: TagsType[] }) => {
               </div>
             </section>
             <section className="grid grid-cols-2 gap-x-3 md:pt-8 pt-4">
-              {/*TODO: add next and previous article option using card*/}
               {!linkedArticles?.prev && <div></div>}
               {linkedArticles?.prev && (
                 <RelatedCard

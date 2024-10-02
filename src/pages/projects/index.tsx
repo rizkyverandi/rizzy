@@ -6,9 +6,23 @@ import { ProjectType } from "@/types/project";
 import { Card } from "@/components/Card";
 import { loadProjects } from "@/libs/project";
 import OnViewAnimation from "@/components/OnViewAnimation";
-//TODO: Add next/head for seo tags
+import Avatar from "@/assets/avatar.png";
+import useHead from "@/utils/useHead";
 
 const index = ({ project }: { project: ProjectType[] }) => {
+  useHead({
+    title: "Projects | Rizzy Personal Website",
+    description:
+      "Explore some innovative projects at Rizzy's repository. Get insights into our latest work and the impact Rizzy's made.",
+    imageUrl: Avatar.src,
+    slug: "projects",
+    keywords: ["projects", "repository", "work", "impact", "insights", "portfolio"],
+    type: "website",
+    robots: "follow, index",
+    locale: "id_ID",
+    canonicalUrl: `https://rizzy-gamma.vercel.app/projects/`,
+  });
+
   return (
     <>
       <SectionWrapper>

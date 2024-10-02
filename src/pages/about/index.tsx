@@ -3,12 +3,26 @@ import Container from "@/components/Container";
 import OnViewAnimation from "@/components/OnViewAnimation";
 import Paragraph from "@/components/Paragraph";
 import SectionWrapper from "@/components/SectionWrapper";
-//TODO: Add next/head for seo tags
+import useHead from "@/utils/useHead";
+import Avatar from "@/assets/avatar.png";
 
 const About = () => {
+  const Head = () =>
+    useHead({
+      title: "About | Rizzy Personal Website",
+      description:
+        "Discover the story behind the Rizzy, Learn about Rizzy's backgrounds. Let's create something amazing together.",
+      imageUrl: Avatar.src,
+      slug: "about",
+      keywords: ["about", "story", "background", "skills", "tools", "contacts"],
+      type: "website",
+      robots: "follow, index",
+      locale: "id_ID",
+      canonicalUrl: `https://rizzy-gamma.vercel.app/about/`,
+    });
   return (
     <>
-      
+      <Head />
       <SectionWrapper>
         <Container className="py-20">
           <div className="flex flex-col gap-14">

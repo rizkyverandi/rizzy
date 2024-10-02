@@ -8,10 +8,10 @@ import OnViewAnimation from "@/components/OnViewAnimation";
 import { BlogCard } from "@/components/Card";
 import Pagination from "@/components/Pagination";
 import { useState } from "react";
-//TODO: Add next/head for seo tags 
+import Avatar from "@/assets/avatar.png";
+import useHead from "@/utils/useHead";
 
 const index = ({ posts }: { posts: TagsType[] }) => {
-
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(3);
 
@@ -23,8 +23,23 @@ const index = ({ posts }: { posts: TagsType[] }) => {
     currentPosts = posts.slice(firstPostIndex, lastPostIndex);
   }
 
+  const Head = () =>
+    useHead({
+      title: "Blogs | Rizzy Personal Website",
+      description:
+        "Stay updated with the latest tv-series, travel, web development, and more. Read through Rizzy blog. Dive into expert articles, how-tos, and thought that help you stay ahead. Join the conversation today.",
+      imageUrl: Avatar.src,
+      slug: "blog",
+      keywords: ["blog", "posts", "tv-series", "travel", "web development"],
+      type: "article",
+      robots: "follow, index",
+      locale: "id_ID",
+      canonicalUrl: `https://rizzy-gamma.vercel.app/blog/`,
+    });
+
   return (
     <>
+      <Head />
       <SectionWrapper>
         <Container className="py-20">
           <div className="flex flex-col gap-y-5">
