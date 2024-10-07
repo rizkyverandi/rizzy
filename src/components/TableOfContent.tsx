@@ -1,48 +1,18 @@
 import React, { useState } from "react";
 import { MdOutlineArrowDropDownCircle } from "react-icons/md";
 
-//TODO: Replace with real data
-const mockData = [
-  {
-    main: "Rincian Perhitungan Biaya Membangun Kost 20 Kamar",
-    sub: [
-      {
-        main: "Biaya persiapan dan perizinan membangun kost 20 kamar",
-        sub: [],
-      },
-      {
-        main: "Desain dan arsitektur",
-        sub: [],
-      },
-      {
-        main: "Biaya bahan bangunan untuk membangun kost 20 kamar",
-        sub: [],
-      },
-      {
-        main: "Tenaga kerja",
-        sub: [],
-      },
-    ],
-  },
-  {
-    main: "Perhitungan Biaya Total Membangun Kost 20 Kamar",
-    sub: [],
-  },
-  {
-    main: "Beberapa Aspek Penting yang Perlu Diperhatikan",
-    sub: [],
-  },
-  {
-    main: "Bangun Bisnis Kost Bersama Rukita",
-    sub: [],
-  },
-  {
-    main: "Bagaimana dengan design kost Anda?",
-    sub: [],
-  },
-];
 
-const TableOfContent = () => {
+const TableOfContent = ({
+  data,
+}: {
+  data: {
+    main: string;
+    sub: {
+      main: string;
+      sub: never[];
+    }[];
+  }[];
+}) => {
   const [isOpen, setIsOpen] = useState(true);
 
   const toggleOpen = (event: React.SyntheticEvent<HTMLDetailsElement>) => {
@@ -52,7 +22,7 @@ const TableOfContent = () => {
 
   return (
     <div className="bg-toc py-4 px-7 rounded-lg shadow-md">
-      <details onToggle={toggleOpen} open className="group">
+      <details onToggle={toggleOpen} open={isOpen} className="group">
         <summary
           style={{
             display: "flex",
@@ -74,7 +44,7 @@ const TableOfContent = () => {
         </summary>
         <nav className="text-cta-text text-sm mt-3 markdown-toc px-4">
           <ol className="list-decimal list-inside space-y-3">
-            {mockData.map((data, index) => {
+            {data.map((data, index) => {
               return (
                 <li key={index}>
                   <a

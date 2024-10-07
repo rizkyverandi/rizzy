@@ -94,11 +94,12 @@ const BlogCard = ({
         </figcaption>
       </div>
       <div className="flex flex-row gap-2 pt-4 items-center text-copy-secondary">
-        <Link
+        {/* <Link
           href={`/author/${publisher?.replace(" ", "-").toLowerCase()}`} // TODO : FIX THIS LINK TO DYNAMIC //
           prefetch={false}
           className="text-xs hover:underline flex gap-x-2 items-center"
-        >
+        > */}
+        <div className="text-xs flex gap-x-2 items-center">
           <Image
             src={"https://picsum.photos/500/500"}
             alt="beaches pictures"
@@ -108,8 +109,8 @@ const BlogCard = ({
             className="rounded-full flex-shrink-0"
           />
           {publisher}
-        </Link>
-        •<p className="text-xs">{readingTime} min read</p>
+        </div>
+        {/* </Link> */}•<p className="text-xs">{readingTime} min read</p>
       </div>
     </figure>
   );

@@ -26,12 +26,14 @@ import {
 } from "react-share";
 import { RelatedCard } from "@/components/Card";
 import useHead from "@/utils/useHead";
+import { DOMAIN } from "@/constants";
 
 type Props = {
   params: {
     slug: string;
   };
 };
+
 
 const index = ({ post, meta }: { post: MetaTags; meta: TagsType[] }) => {
   const linkedArticles = meta.find(
@@ -47,9 +49,9 @@ const index = ({ post, meta }: { post: MetaTags; meta: TagsType[] }) => {
       keywords: post.meta.keywords,
       type: "article",
       author: post.meta.publisher,
-      robots: "follow, index", 
+      robots: "follow, index",
       locale: "id_ID",
-      canonicalUrl: `https://rizzy-gamma.vercel.app/blog/${post.meta.id}`,
+      canonicalUrl: `${DOMAIN}/blog/${post.meta.id}`,
     });
 
   if (!post) {
@@ -85,11 +87,12 @@ const index = ({ post, meta }: { post: MetaTags; meta: TagsType[] }) => {
                 </h1>
                 <section className="text-[14px] leading-[20px]">
                   <div className="flex flex-row gap-2 pt-4 items-center text-white">
-                    <Link
+                    {/* <Link
                       href={`/author/test`}
                       prefetch={false}
                       className="text-xs hover:underline flex gap-x-2 items-center"
-                    >
+                    > */}
+                    <div className="text-xs flex gap-x-2 items-center">
                       <Image
                         src={"https://picsum.photos/500/500"}
                         alt={`Illustratuion that represent this ${post.meta.title} article.`}
@@ -103,7 +106,8 @@ const index = ({ post, meta }: { post: MetaTags; meta: TagsType[] }) => {
                         className="rounded-full flex-shrink-0"
                       />
                       {post.meta.publisher}
-                    </Link>
+                    </div>
+                    {/* </Link> */}
                     <span>•</span>
                     <p className="text-xs m-0">
                       {post.meta.readingTime} min read
@@ -126,7 +130,9 @@ const index = ({ post, meta }: { post: MetaTags; meta: TagsType[] }) => {
                 introDesc={post.meta.introDesc}
                 recommendation={post.meta.recommendation}
               />
-              <TableOfContent />
+              {post.meta.tableContent.length > 0 && (
+                <TableOfContent data={post.meta.tableContent} />
+              )}
             </section>
             <section
               dangerouslySetInnerHTML={{ __html: post.content }}
@@ -138,23 +144,23 @@ const index = ({ post, meta }: { post: MetaTags; meta: TagsType[] }) => {
               </div>
               <div className="flex gap-3">
                 <FacebookShareButton
-                  url={`https://rizzy.vercel.app/blog/${post.meta.id}`}
+                  url={`${DOMAIN}/blog/${post.meta.id}`}
                   children={<FacebookIcon size={32} round />}
                 />
                 <TwitterShareButton
-                  url={`https://rizzy.vercel.app/blog/${post.meta.id}`}
+                  url={`${DOMAIN}/blog/${post.meta.id}`}
                   children={<TwitterIcon size={32} round />}
                 />
                 <WhatsappShareButton
-                  url={`https://rizzy.vercel.app/blog/${post.meta.id}`}
+                  url={`${DOMAIN}/blog/${post.meta.id}`}
                   children={<WhatsappIcon size={32} round />}
                 />
                 <TelegramShareButton
-                  url={`https://rizzy.vercel.app/blog/${post.meta.id}`}
+                  url={`${DOMAIN}/blog/${post.meta.id}`}
                   children={<TelegramIcon size={32} round />}
                 />
                 <LinkedinShareButton
-                  url={`https://rizzy.vercel.app/blog/${post.meta.id}`}
+                  url={`${DOMAIN}/blog/${post.meta.id}`}
                   children={<LinkedinIcon size={32} round />}
                 />
               </div>

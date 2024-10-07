@@ -2,6 +2,8 @@ import "dotenv/config";
 
 //export const BASE_URL = process.env.NEXT_PUBLIC_API_URL; // un-used
 
+export const DOMAIN = process.env.NEXT_PUBLIC_DOMAIN;
+
 export const HTTP_GITHUB_HEADERS = {
   Accept: "application/vnd.github+json",
   Authorization: `Bearer ${process.env.NEXT_PRIVATE_GITHUB_TOKEN}`,

@@ -1,3 +1,4 @@
+import { DOMAIN } from "@/constants";
 import Head from "next/head";
 
 type HeadProps = {
@@ -71,7 +72,7 @@ const useHead = (props: HeadProps) => {
       )}
       <meta
         property="og:url"
-        content={"https://rizzy-gamma.vercel.app/blog/" + props.slug + "/"}
+        content={`${DOMAIN}/blog/${props.slug}/`}
         key="og-url"
       />
       {props.type && (

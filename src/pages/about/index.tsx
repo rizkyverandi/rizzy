@@ -5,6 +5,7 @@ import Paragraph from "@/components/Paragraph";
 import SectionWrapper from "@/components/SectionWrapper";
 import useHead from "@/utils/useHead";
 import Avatar from "@/assets/avatar.png";
+import { DOMAIN } from "@/constants";
 
 const About = () => {
   const Head = () =>
@@ -18,7 +19,7 @@ const About = () => {
       type: "website",
       robots: "follow, index",
       locale: "id_ID",
-      canonicalUrl: `https://rizzy-gamma.vercel.app/about/`,
+      canonicalUrl: `${DOMAIN}/about/`,
     });
   return (
     <>

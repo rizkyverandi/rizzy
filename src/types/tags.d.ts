@@ -15,6 +15,13 @@ export type TagsType = {
     title: string;
     url: string;
   };
+  tableContent: {
+    main: string;
+    sub: {
+      main: string;
+      sub: never[];
+    }[];
+  }[];
   next?: Pick<TagsType, "title" | "id" | "imgUrl"> | null;
   prev?: Pick<TagsType, "title" | "id" | "imgUrl"> | null;
 };

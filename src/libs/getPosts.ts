@@ -103,6 +103,7 @@ export const getPostByName = async (
         title: matter.data.recommendation?.title || "",
         url: matter.data.recommendation?.url || "",
       },
+      tableContent: matter.data.tableContent || [],
     },
     content: processedContent,
   };

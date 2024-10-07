@@ -33,7 +33,6 @@ export default function Home({
                 src={Avatar}
                 width={640}
                 height={70}
-                layout="responsive"
               />
             </div>
             <div className="lg:col-start-1 lg:row-start-1 lg:col-span-4 row-span-4 flex flex-col gap-y-5">

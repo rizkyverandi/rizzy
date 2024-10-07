@@ -10,10 +10,11 @@ import Pagination from "@/components/Pagination";
 import { useState } from "react";
 import Avatar from "@/assets/avatar.png";
 import useHead from "@/utils/useHead";
+import { DOMAIN } from "@/constants";
 
 const index = ({ posts }: { posts: TagsType[] }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(3);
+  const [postsPerPage] = useState(6);
 
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
@@ -34,7 +35,7 @@ const index = ({ posts }: { posts: TagsType[] }) => {
       type: "article",
       robots: "follow, index",
       locale: "id_ID",
-      canonicalUrl: `https://rizzy-gamma.vercel.app/blog/`,
+      canonicalUrl: `${DOMAIN}/blog/`,
     });
 
   return (

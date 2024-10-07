@@ -5,6 +5,7 @@ import type { AppProps } from "next/app";
 import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 import useHead from "@/utils/useHead";
 import Avatar from "@/assets/avatar.png";
+import { DOMAIN } from "@/constants";
 
 export default function App({ Component, pageProps }: AppProps) {
   const Head = () =>
@@ -18,7 +19,7 @@ export default function App({ Component, pageProps }: AppProps) {
       type: "website",
       robots: "follow, index",
       locale: "id_ID",
-      canonicalUrl: `https://rizzy-gamma.vercel.app/`,
+      canonicalUrl: `${DOMAIN}`,
     });
 
   return (
