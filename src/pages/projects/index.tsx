@@ -8,6 +8,7 @@ import { loadProjects } from "@/libs/project";
 import OnViewAnimation from "@/components/OnViewAnimation";
 import Avatar from "@/assets/avatar.png";
 import useHead from "@/utils/useHead";
+import { DOMAIN } from "@/constants";
 
 const index = ({ project }: { project: ProjectType[] }) => {
   useHead({
@@ -20,7 +21,7 @@ const index = ({ project }: { project: ProjectType[] }) => {
     type: "website",
     robots: "follow, index",
     locale: "id_ID",
-    canonicalUrl: `https://rizzy-gamma.vercel.app/projects/`,
+    canonicalUrl: `${DOMAIN}/projects/`,
   });
 
   return (

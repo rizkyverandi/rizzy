@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "npm run lint && next dev",
-    "build": "next build",
+    "build": "next-sitemap && next build",
     "start": "next start",
     "lint": "next lint --max-warnings 0"
   },
@@ -16,6 +16,7 @@
     "lenis": "^1.1.9",
     "next": "14.2.5",
     "next-mdx-remote": "^5.0.0",
+    "next-sitemap": "^4.2.3",
     "observable-hooks": "^4.2.4",
     "react": "^18",
     "react-dom": "^18",

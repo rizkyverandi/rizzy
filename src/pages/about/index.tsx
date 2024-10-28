@@ -32,9 +32,10 @@ const About = () => {
             </h1>
             <Paragraph>
               I&apos;m a software engineer who graduated in 2022 from Binus
-              University. I also enjoy making music; my stage name is EnkuMusic.
-              I love playing video games and hanging out on Discord with friends
-              to unwind after a day of work. It&apos;s how I relax. Right now, I
+              University. I also enjoy making music; my stage name is{" "}
+              <a href="https://soundcloud.com/enkumusic/" target="_blank" className="underline">Enku</a>. I love
+              playing video games and hanging out on Discord with friends to
+              unwind after a day of work. It&apos;s how I relax. Right now, I
               want to take a break from my music career and focus on my career
               as a software developer. I like both, but unfortunately, I have to
               choose between them. Are there jobs with that combine both of

@@ -70,14 +70,16 @@ const BlogCard = ({
   return (
     <figure className=" rounded-3xl flex flex-col gap-y-2 justify-between">
       <div className="flex flex-col gap-1">
-        <Image
-          src={imgUrl || ""}
-          alt={title || ""}
-          width={450}
-          height={300}
-          style={{ width: "100%", height: "250px" }}
-          className="rounded-xl flex-shrink-0 mb-3 object-fill"
-        />
+        <Link href={`/blog/${id}`} prefetch={false}>
+          <Image
+            src={imgUrl || ""}
+            alt={title || ""}
+            width={450}
+            height={300}
+            style={{ width: "100%", height: "250px" }}
+            className="rounded-xl flex-shrink-0 mb-3 aspect-square object-cover shadow-md shadow-cta-text-secondary/25"
+          />
+        </Link>
         <span className="flex gap-x-2 items-center">
           <Tags tags={tag || "None"} /> <span className="text-cta-text">•</span>
           <time className="text-sm text-copy-secondary font-medium">
@@ -121,11 +123,13 @@ const RelatedCard = ({
   title,
   id,
   arrowDirection = "left",
+  tag
 }: {
   imgUrl: string;
   title: string;
   id: string;
   arrowDirection: "left" | "right";
+  tag: string;
 }) => {
   return (
     <figure className="flex flex-col gap-y-2 justify-between max-h-[200px]">
@@ -135,10 +139,10 @@ const RelatedCard = ({
           alt={title || ""}
           width={100}
           height={80}
-          className="rounded-xl flex-shrink-0 mb-3 object-cover"
+          className="block rounded-xl flex-shrink-0 mb-3 object-cover shadow-md shadow-cta-text-secondary/25 aspect-square"
         />
         <figcaption className="flex flex-col gap-3 mt-3 mb-2">
-          <Tags tags={"None"} className="md:text-sm text-[10px] leading-3" />
+          <Tags tags={tag} className="md:text-sm text-[10px] leading-3" />
           <Link href={`/blog/${id}`} prefetch={false}>
             <h3 className="md:text-base text-xs max-h-max min-w-min font-semibold hover:underline">
               <span className="line-clamp-3 break-words">

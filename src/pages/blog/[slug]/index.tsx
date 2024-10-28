@@ -34,7 +34,6 @@ type Props = {
   };
 };
 
-
 const index = ({ post, meta }: { post: MetaTags; meta: TagsType[] }) => {
   const linkedArticles = meta.find(
     (meta: TagsType) => meta.id === post.meta.id
@@ -103,7 +102,7 @@ const index = ({ post, meta }: { post: MetaTags; meta: TagsType[] }) => {
                           height: "20px",
                           objectFit: "cover",
                         }}
-                        className="rounded-full flex-shrink-0"
+                        className="rounded-full flex-shrink-0 shadow-md shadow-cta-text-secondary/25"
                       />
                       {post.meta.publisher}
                     </div>
@@ -120,7 +119,7 @@ const index = ({ post, meta }: { post: MetaTags; meta: TagsType[] }) => {
                 alt={`Picture that represent this ${post.meta.title} article.`}
                 width={400}
                 height={250}
-                className="h-[250px] w-[100%] rounded-[12px] object-fill md:h-[350px]"
+                className="h-[250px] w-[100%] rounded-[12px] object-cover md:h-[350px] aspect-video"
               />
               <div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden rounded-[12px] bg-gradient-to-t from-[rgba(24,24,24)]/[0.7] to-transparent"></div>
             </header>
@@ -169,6 +168,8 @@ const index = ({ post, meta }: { post: MetaTags; meta: TagsType[] }) => {
               {!linkedArticles?.prev && <div></div>}
               {linkedArticles?.prev && (
                 <RelatedCard
+                  tag={linkedArticles.tag}
+                  key={linkedArticles?.prev?.id}
                   imgUrl={linkedArticles?.prev?.imgUrl}
                   title={linkedArticles?.prev?.title}
                   id={linkedArticles?.prev?.id}
@@ -178,6 +179,8 @@ const index = ({ post, meta }: { post: MetaTags; meta: TagsType[] }) => {
               {!linkedArticles?.next && <div></div>}
               {linkedArticles?.next && (
                 <RelatedCard
+                  tag={linkedArticles.tag}
+                  key={linkedArticles?.next?.id}
                   imgUrl={linkedArticles?.next?.imgUrl}
                   title={linkedArticles?.next?.title}
                   id={linkedArticles?.next?.id}

@@ -57,18 +57,26 @@ export default function Home({
           <Container className="py-20 text-cta-text">
             <div className="flex flex-col gap-y-5">
               <OnViewAnimation headerText="Articles" redirectURL="/blog">
-                {posts
-                  .slice(0, 5) // limit array if more than 5
-                  .map((val: TagsType, index: number) => {
-                    return (
-                      <List
-                        title={val.title}
-                        date={val.date}
-                        url={`/blog/${val.id}`}
-                        key={index}
-                      />
-                    );
-                  })}
+                {posts.length > 0 &&
+                  posts
+                    .slice(0, 5) // limit array if more than 5
+                    .map((val: TagsType, index: number) => {
+                      return (
+                        <>
+                          <List
+                            title={val.title}
+                            date={val.date}
+                            url={`/blog/${val.id}`}
+                            key={index}
+                          />
+                        </>
+                      );
+                    })}
+                {posts.length === 0 && (
+                  <div className="text-center">
+                    <Paragraph>No posts yet!</Paragraph>
+                  </div>
+                )}
               </OnViewAnimation>
             </div>
           </Container>
