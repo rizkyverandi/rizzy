@@ -27,6 +27,7 @@ import {
 import { RelatedCard } from "@/components/Card";
 import useHead from "@/utils/useHead";
 import { DOMAIN } from "@/constants";
+import CustomHead from "@/utils/CustomHead";
 
 type Props = {
   params: {
@@ -39,26 +40,25 @@ const index = ({ post, meta }: { post: MetaTags; meta: TagsType[] }) => {
     (meta: TagsType) => meta.id === post.meta.id
   );
 
-  const Head = () =>
-    useHead({
-      title: post.meta.title,
-      description: post.meta.description,
-      imageUrl: post.meta.imgUrl,
-      slug: post.meta.id,
-      keywords: post.meta.keywords,
-      type: "article",
-      author: post.meta.publisher,
-      robots: "follow, index",
-      locale: "id_ID",
-      canonicalUrl: `${DOMAIN}/blog/${post.meta.id}`,
-    });
-
   if (!post) {
     return <div>Loading...</div>; // Show a loading state while fetching
   }
   return (
     <>
-      <Head />
+      <CustomHead
+        {...{
+          title: post.meta.title,
+          description: post.meta.description,
+          imageUrl: post.meta.imgUrl,
+          slug: post.meta.id,
+          keywords: post.meta.keywords,
+          type: "article",
+          author: post.meta.publisher,
+          robots: "follow, index",
+          locale: "id_ID",
+          canonicalUrl: `${DOMAIN}/blog/${post.meta.id}`,
+        }}
+      />
       <article>
         <SectionWrapper>
           <Breadcrumb />

@@ -9,23 +9,32 @@ import OnViewAnimation from "@/components/OnViewAnimation";
 import Avatar from "@/assets/avatar.png";
 import useHead from "@/utils/useHead";
 import { DOMAIN } from "@/constants";
+import CustomHead from "@/utils/CustomHead";
 
 const index = ({ project }: { project: ProjectType[] }) => {
-  useHead({
-    title: "Projects | Rizzy Personal Website",
-    description:
-      "Explore some innovative projects at Rizzy's repository. Get insights into our latest work and the impact Rizzy's made.",
-    imageUrl: Avatar.src,
-    slug: "projects",
-    keywords: ["projects", "repository", "work", "impact", "insights", "portfolio"],
-    type: "website",
-    robots: "follow, index",
-    locale: "id_ID",
-    canonicalUrl: `${DOMAIN}/projects/`,
-  });
-
   return (
     <>
+      <CustomHead
+        {...{
+          title: "Projects | Rizzy Personal Website",
+          description:
+            "Explore some innovative projects at Rizzy's repository. Get insights into our latest work and the impact Rizzy's made.",
+          imageUrl: Avatar.src,
+          slug: "projects",
+          keywords: [
+            "projects",
+            "repository",
+            "work",
+            "impact",
+            "insights",
+            "portfolio",
+          ],
+          type: "website",
+          robots: "follow, index",
+          locale: "id_ID",
+          canonicalUrl: `${DOMAIN}/projects/`,
+        }}
+      />
       <SectionWrapper>
         <Container className="py-20 text-cta-text">
           <div className="flex flex-col gap-y-5">

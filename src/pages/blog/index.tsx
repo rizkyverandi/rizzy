@@ -9,7 +9,7 @@ import { BlogCard } from "@/components/Card";
 import Pagination from "@/components/Pagination";
 import React, { useState } from "react";
 import Avatar from "@/assets/avatar.png";
-import useHead from "@/utils/useHead";
+import CustomHead from "@/utils/CustomHead";
 import { DOMAIN } from "@/constants";
 
 const index = ({ posts }: { posts: TagsType[] }) => {
@@ -24,23 +24,22 @@ const index = ({ posts }: { posts: TagsType[] }) => {
     currentPosts = posts.slice(firstPostIndex, lastPostIndex);
   }
 
-  const Head = () =>
-    useHead({
-      title: "Blogs | Rizzy Personal Website",
-      description:
-        "Stay updated with the latest tv-series, travel, web development, and more. Read through Rizzy blog. Dive into expert articles, how-tos, and thought that help you stay ahead. Join the conversation today.",
-      imageUrl: Avatar.src,
-      slug: "blog",
-      keywords: ["blog", "posts", "tv-series", "travel", "web development"],
-      type: "article",
-      robots: "follow, index",
-      locale: "id_ID",
-      canonicalUrl: `${DOMAIN}/blog/`,
-    });
-
   return (
     <>
-      {/* <Head /> */}
+      <CustomHead
+        {...{
+          title: "Blogs | Rizzy Personal Website",
+          description:
+            "Stay updated with the latest tv-series, travel, web development, and more. Read through Rizzy blog. Dive into expert articles, how-tos, and thought that help you stay ahead. Join the conversation today.",
+          imageUrl: Avatar.src,
+          slug: "blog",
+          keywords: ["blog", "posts", "tv-series", "travel", "web development"],
+          type: "article",
+          robots: "follow, index",
+          locale: "id_ID",
+          canonicalUrl: `${DOMAIN}/blog/`,
+        }}
+      />
       <SectionWrapper>
         <Container className="py-20">
           <div className="flex flex-col gap-y-5">

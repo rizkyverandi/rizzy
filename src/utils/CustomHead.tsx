@@ -23,7 +23,7 @@ type HeadProps = {
   phoneNumber?: string;
 };
 
-const useHead = (props: HeadProps) => {
+const CustomHead = (props: HeadProps) => {
   return (
     <Head>
       <title>{props.title}</title>
@@ -145,4 +145,4 @@ const useHead = (props: HeadProps) => {
   );
 };
 
-export default useHead;
+export default CustomHead;

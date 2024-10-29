@@ -6,24 +6,32 @@ import SectionWrapper from "@/components/SectionWrapper";
 import useHead from "@/utils/useHead";
 import Avatar from "@/assets/avatar.png";
 import { DOMAIN } from "@/constants";
+import CustomHead from "@/utils/CustomHead";
 
 const About = () => {
-  const Head = () =>
-    useHead({
-      title: "About | Rizzy Personal Website",
-      description:
-        "Discover the story behind the Rizzy, Learn about Rizzy's backgrounds. Let's create something amazing together.",
-      imageUrl: Avatar.src,
-      slug: "about",
-      keywords: ["about", "story", "background", "skills", "tools", "contacts"],
-      type: "website",
-      robots: "follow, index",
-      locale: "id_ID",
-      canonicalUrl: `${DOMAIN}/about/`,
-    });
   return (
     <>
-      <Head />
+      <CustomHead
+        {...{
+          title: "About | Rizzy Personal Website",
+          description:
+            "Discover the story behind the Rizzy, Learn about Rizzy's backgrounds. Let's create something amazing together.",
+          imageUrl: Avatar.src,
+          slug: "about",
+          keywords: [
+            "about",
+            "story",
+            "background",
+            "skills",
+            "tools",
+            "contacts",
+          ],
+          type: "website",
+          robots: "follow, index",
+          locale: "id_ID",
+          canonicalUrl: `${DOMAIN}/about/`,
+        }}
+      />
       <SectionWrapper>
         <Container className="py-20">
           <div className="flex flex-col gap-14">
@@ -33,16 +41,23 @@ const About = () => {
             <Paragraph>
               I&apos;m a software engineer who graduated in 2022 from Binus
               University. I also enjoy making music; my stage name is{" "}
-              <a href="https://soundcloud.com/enkumusic/" target="_blank" className="underline">Enku</a>. I love
-              playing video games and hanging out on Discord with friends to
-              unwind after a day of work. It&apos;s how I relax. Right now, I
-              want to take a break from my music career and focus on my career
-              as a software developer. I like both, but unfortunately, I have to
-              choose between them. Are there jobs with that combine both of
-              these careers? I&apos;m sure there are, but they&apos;re quite
-              rare. However, I might not update my website very often, but if I
-              find some free time, I&apos;ll try to update it. Feel free to
-              contact me via email, LinkedIn, or social media. Cheers!
+              <a
+                href="https://soundcloud.com/enkumusic/"
+                target="_blank"
+                className="underline"
+              >
+                Enku
+              </a>
+              . I love playing video games and hanging out on Discord with
+              friends to unwind after a day of work. It&apos;s how I relax.
+              Right now, I want to take a break from my music career and focus
+              on my career as a software developer. I like both, but
+              unfortunately, I have to choose between them. Are there jobs with
+              that combine both of these careers? I&apos;m sure there are, but
+              they&apos;re quite rare. However, I might not update my website
+              very often, but if I find some free time, I&apos;ll try to update
+              it. Feel free to contact me via email, LinkedIn, or social media.
+              Cheers!
             </Paragraph>
 
             <OnViewAnimation headerText="Tools">
