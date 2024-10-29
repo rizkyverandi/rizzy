@@ -25,7 +25,6 @@ import {
   LinkedinIcon,
 } from "react-share";
 import { RelatedCard } from "@/components/Card";
-import useHead from "@/utils/useHead";
 import { DOMAIN } from "@/constants";
 import CustomHead from "@/utils/CustomHead";
 

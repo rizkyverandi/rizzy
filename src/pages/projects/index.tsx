@@ -7,7 +7,6 @@ import { Card } from "@/components/Card";
 import { loadProjects } from "@/libs/project";
 import OnViewAnimation from "@/components/OnViewAnimation";
 import Avatar from "@/assets/avatar.png";
-import useHead from "@/utils/useHead";
 import { DOMAIN } from "@/constants";
 import CustomHead from "@/utils/CustomHead";
 
