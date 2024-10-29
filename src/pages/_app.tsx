@@ -3,7 +3,6 @@ import Layout from "@/components/Layout";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { ErrorBoundary } from "next/dist/client/components/error-boundary";
-import useHead from "@/utils/useHead";
 import Avatar from "@/assets/avatar.png";
 import { DOMAIN } from "@/constants";
 import CustomHead from "@/utils/CustomHead";

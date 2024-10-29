@@ -3,7 +3,6 @@ import Container from "@/components/Container";
 import OnViewAnimation from "@/components/OnViewAnimation";
 import Paragraph from "@/components/Paragraph";
 import SectionWrapper from "@/components/SectionWrapper";
-import useHead from "@/utils/useHead";
 import Avatar from "@/assets/avatar.png";
 import { DOMAIN } from "@/constants";
 import CustomHead from "@/utils/CustomHead";
