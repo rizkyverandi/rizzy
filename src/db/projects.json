@@ -26,6 +26,15 @@
       "url": "https://github.com/rizkyverandi/travelingo",
       "demoUrl": "",
       "articleUrl": ""
+    },
+    {
+      "id": "1a3df181-ec65-49cf-b270-1619564a09f9",
+      "title": "Cats Library",
+      "desc": "Redux Toolkit and Redux-Saga for state management.",
+      "year": "2024",
+      "url": "https://github.com/rizkyverandi/cats-library",
+      "demoUrl": "",
+      "articleUrl": ""
     }
   ]
 }
