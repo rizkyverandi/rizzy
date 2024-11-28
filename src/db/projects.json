@@ -35,6 +35,15 @@
       "url": "https://github.com/rizkyverandi/cats-library",
       "demoUrl": "",
       "articleUrl": ""
+    },
+    {
+      "id": "a12dbee5-2d50-47c5-987e-d65b88864406",
+      "title": "MERN",
+      "desc": "MongoDB, Express, React, NodeJS.",
+      "year": "2022",
+      "url": "https://github.com/rizkyverandi/portfolio",
+      "demoUrl": "",
+      "articleUrl": ""
     }
   ]
 }
