@@ -28,16 +28,33 @@ const MemoCard = ({
           {props.desc}
         </figcaption>
       </div>
-      <div className="flex flex-row gap-2 pt-4">
+      <div className="flex flex-row gap-2 pt-4 text-xs">
         {props.url && (
           <a
-            className="text-copy-secondary px-4 py-2 bg-card rounded-xl border border-gray-500 flex items-center"
+            className="text-copy-secondary px-4 py-2 bg-card rounded-xl border border-gray-500 flex items-center gap-1"
             href={`${props.url}`}
             target="_blank"
             aria-label={`Find out more about ${props.title} project.`}
             rel="norefferer"
           >
-            <FaExternalLinkAlt size={12} />
+            <span>Source</span>{" "}
+            <span>
+              <FaExternalLinkAlt size={12} />
+            </span>
+          </a>
+        )}
+        {props.demoUrl && (
+          <a
+            className="text-copy-secondary px-4 py-2 bg-card rounded-xl border border-gray-500 flex items-center gap-1"
+            href={`${props.demoUrl}`}
+            target="_blank"
+            aria-label={`Find out more about ${props.title} project.`}
+            rel="norefferer"
+          >
+            <span>Demo</span>{" "}
+            <span>
+              <FaExternalLinkAlt size={12} />
+            </span>
           </a>
         )}
         {/* {articleUrl && (
@@ -123,7 +140,7 @@ const RelatedCard = ({
   title,
   id,
   arrowDirection = "left",
-  tag
+  tag,
 }: {
   imgUrl: string;
   title: string;
