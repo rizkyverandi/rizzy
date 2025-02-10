@@ -44,6 +44,24 @@
       "url": "https://github.com/rizkyverandi/portfolio",
       "demoUrl": "",
       "articleUrl": ""
+    },
+    {
+      "id": "21c4d225-3353-442b-b5e8-39ba8269615c",
+      "title": "Express API",
+      "desc": "Express, NodeJS, Clean Architecture, CQRS, Inversify, Jest",
+      "year": "2025",
+      "url": "https://github.com/rizkyverandi/api-crud-express-techtest",
+      "demoUrl": "",
+      "articleUrl": ""
+    },
+    {
+      "id": "90477abc-3a57-45c8-bc1c-efdf9e78eede",
+      "title": "RabbitMQ SMTP Email",
+      "desc": "RabbitMQ, NodeJS, Nodemailer",
+      "year": "2025",
+      "url": "https://github.com/rizkyverandi/rabbitmq-techtest",
+      "demoUrl": "",
+      "articleUrl": ""
     }
   ]
 }
